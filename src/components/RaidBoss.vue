@@ -1,27 +1,38 @@
 <template>
-  <div class="raid-boss">
-    <figure>
-      <img :src="img" :alt="name">
+  <div
+    class="raid-boss"
+    :class="{ 'not-defeated': !boss.defeated }"
+  >
+    <figure @click="showBossFightPopup = true">
+      <img :src="boss.img" :alt="boss.name">
       <figcaption>
-        {{ name }}
+        {{ boss.name }}
       </figcaption>
     </figure>
+    <GuildRaidBossesStatsPopup
+      v-if="showBossFightPopup"
+      :boss="boss"
+      @close="showBossFightPopup = false"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import GuildRaidBossesStatsPopup from '@/components/reusable/GuildRaidBossesStatsPopup.vue';
 
 export default defineComponent({
+  components: { GuildRaidBossesStatsPopup },
   props: {
-    img: {
-      type: String,
+    boss: {
+      type: Object,
       required: true,
     },
-    name: {
-      type: String,
-      required: true,
-    },
+  },
+  data() {
+    return {
+      showBossFightPopup: false,
+    };
   },
 });
 </script>
@@ -29,6 +40,7 @@ export default defineComponent({
 <style scoped>
 .raid-boss {
   user-select: none;
+  cursor: pointer;
 }
 
 figure {
@@ -45,5 +57,10 @@ img {
 
 figcaption {
   font-size: 30px;
+}
+
+.not-defeated {
+  pointer-events: none;
+  filter: grayscale(2);
 }
 </style>

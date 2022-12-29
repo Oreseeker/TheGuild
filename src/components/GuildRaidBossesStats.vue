@@ -2,7 +2,7 @@
   <div class="guild-raid-bosses-stats">
     <h1>Побеждённые боссы</h1>
     <div class="bosses">
-      <RaidBossProgress
+      <RaidBoss
         v-for="(boss, index) in stats.bosses"
         :key="index"
         :boss="boss"
@@ -14,9 +14,12 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import RaidBossProgress from '@/components/RaidBossProgress.vue';
+import RaidBoss from '@/components/RaidBoss.vue';
+import GuildRaidBossesStatsPopup from '@/components/reusable/GuildRaidBossesStatsPopup.vue';
 
 export default defineComponent({
-  components: { RaidBossProgress },
+  // eslint-disable-next-line vue/no-unused-components
+  components: { GuildRaidBossesStatsPopup, RaidBoss, RaidBossProgress },
   props: {
     stats: {
       type: Object,

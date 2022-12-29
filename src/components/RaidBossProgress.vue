@@ -22,6 +22,7 @@ import RoleCounter from '@/components/RoleCounter.vue';
 import { RaidRole } from '@/enums';
 
 export default defineComponent({
+  // eslint-disable-next-line vue/no-unused-components
   components: { RoleCounter, RaidBoss },
   props: {
     boss: {
@@ -59,12 +60,5 @@ export default defineComponent({
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.participants {
-  margin: 10px 0 0 0;
-  display: flex;
-  align-items: center;
-  gap: 20px;
 }
 </style>

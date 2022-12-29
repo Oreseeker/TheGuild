@@ -17,7 +17,10 @@ import { defineComponent } from 'vue';
 import GuildRaidBriefStats from '@/components/GuildRaidBriefStats.vue';
 import GuildRaidBossesStats from '@/components/GuildRaidBossesStats.vue';
 import {
-  GameClass , VaultOfIncaratesBosses, PriestSpec, RaidRole,
+  GameClass,
+  VaultOfIncaratesBosses,
+  RaidRole,
+  PlayerSpec,
 } from '@/enums';
 
 import eranogImage from '@/assets/bosses/eranog.png';
@@ -41,11 +44,12 @@ export default defineComponent({
           {
             name: VaultOfIncaratesBosses.ERANOG,
             img: eranogImage,
+            defeated: true,
             participants: [
               {
                 name: 'Мурдра',
                 class: GameClass.PRIEST,
-                spec: PriestSpec.DISCIPLINE,
+                spec: PlayerSpec.DISCIPLINE,
                 role: RaidRole.HEALER,
               },
             ],
@@ -53,11 +57,12 @@ export default defineComponent({
           {
             name: VaultOfIncaratesBosses.TERROS,
             img: terrosImage,
+            defeated: true,
             participants: [
               {
                 name: 'Мурдра',
                 class: GameClass.PRIEST,
-                spec: PriestSpec.DISCIPLINE,
+                spec: PlayerSpec.DISCIPLINE,
                 role: RaidRole.HEALER,
               },
             ],
@@ -65,11 +70,12 @@ export default defineComponent({
           {
             name: VaultOfIncaratesBosses.PRIMAL_COUNCIL,
             img: councilImage,
+            defeated: true,
             participants: [
               {
                 name: 'Мурдра',
                 class: GameClass.PRIEST,
-                spec: PriestSpec.DISCIPLINE,
+                spec: PlayerSpec.DISCIPLINE,
                 role: RaidRole.HEALER,
               },
             ],
@@ -77,11 +83,12 @@ export default defineComponent({
           {
             name: VaultOfIncaratesBosses.SENNARTH,
             img: sennarthImage,
+            defeated: true,
             participants: [
               {
                 name: 'Мурдра',
                 class: GameClass.PRIEST,
-                spec: PriestSpec.DISCIPLINE,
+                spec: PlayerSpec.DISCIPLINE,
                 role: RaidRole.HEALER,
               },
             ],
@@ -89,11 +96,12 @@ export default defineComponent({
           {
             name: VaultOfIncaratesBosses.DATHEA,
             img: datheaImage,
+            defeated: true,
             participants: [
               {
                 name: 'Мурдра',
                 class: GameClass.PRIEST,
-                spec: PriestSpec.DISCIPLINE,
+                spec: PlayerSpec.DISCIPLINE,
                 role: RaidRole.HEALER,
               },
             ],
@@ -101,11 +109,12 @@ export default defineComponent({
           {
             name: VaultOfIncaratesBosses.KUROG,
             img: kurogImage,
+            defeated: true,
             participants: [
               {
                 name: 'Мурдра',
                 class: GameClass.PRIEST,
-                spec: PriestSpec.DISCIPLINE,
+                spec: PlayerSpec.DISCIPLINE,
                 role: RaidRole.HEALER,
               },
             ],
@@ -113,11 +122,157 @@ export default defineComponent({
           {
             name: VaultOfIncaratesBosses.DIURNA,
             img: diurnaImage,
+            defeated: true,
+            datetime: '2022-12-25T16:46:00.000Z',
             participants: [
+              {
+                name: 'Мантагро',
+                class: GameClass.DEATH_KNIGHT,
+                spec: PlayerSpec.BLOOD,
+                role: RaidRole.TANK,
+              },
+              {
+                name: 'Маггрубер',
+                class: GameClass.PALADIN,
+                spec: PlayerSpec.PROTECTION,
+                role: RaidRole.TANK,
+              },
+              {
+                name: 'Чарджкиса',
+                class: GameClass.WARRIOR,
+                spec: PlayerSpec.PROTECTION,
+                role: RaidRole.TANK,
+              },
+              {
+                name: 'Аригай',
+                class: GameClass.DEATH_KNIGHT,
+                spec: PlayerSpec.FROST,
+                role: RaidRole.DPS,
+              },
+              {
+                name: 'Макгрувер',
+                class: GameClass.DEATH_KNIGHT,
+                spec: PlayerSpec.FROST,
+                role: RaidRole.DPS,
+              },
+              {
+                name: 'Илаз',
+                class: GameClass.DEMON_HUNTER,
+                spec: PlayerSpec.HAVOC,
+                role: RaidRole.DPS,
+              },
+              {
+                name: 'Фаеван',
+                class: GameClass.EVOKER,
+                spec: PlayerSpec.DEVASTATION,
+                role: RaidRole.DPS,
+              },
+              {
+                name: 'Грушонычь',
+                class: GameClass.HUNTER,
+                spec: PlayerSpec.MARKSMANSHIP,
+                role: RaidRole.DPS,
+              },
+              {
+                name: 'Добрыйклыкач',
+                class: GameClass.HUNTER,
+                spec: PlayerSpec.BEAST_MASTER,
+                role: RaidRole.DPS,
+              },
+              {
+                name: 'Кавадор',
+                class: GameClass.HUNTER,
+                spec: PlayerSpec.BEAST_MASTER,
+                role: RaidRole.DPS,
+              },
+              {
+                name: 'Кхуун',
+                class: GameClass.HUNTER,
+                spec: PlayerSpec.BEAST_MASTER,
+                role: RaidRole.DPS,
+              },
+              {
+                name: 'Уайлен',
+                class: GameClass.HUNTER,
+                spec: PlayerSpec.MARKSMANSHIP,
+                role: RaidRole.DPS,
+              },
+              {
+                name: 'Элуизка',
+                class: GameClass.HUNTER,
+                spec: PlayerSpec.BEAST_MASTER,
+                role: RaidRole.DPS,
+              },
+              {
+                name: 'Калючечка',
+                class: GameClass.MAGE,
+                spec: PlayerSpec.FIRE,
+                role: RaidRole.DPS,
+              },
+              {
+                name: 'Визериз',
+                class: GameClass.MONK,
+                spec: PlayerSpec.WINDWALKER,
+                role: RaidRole.DPS,
+              },
+              {
+                name: 'Моргиус',
+                class: GameClass.PALADIN,
+                spec: PlayerSpec.RETRIBUTION,
+                role: RaidRole.DPS,
+              },
+              {
+                name: 'Йорданиэль',
+                class: GameClass.PRIEST,
+                spec: PlayerSpec.SHADOW,
+                role: RaidRole.DPS,
+              },
+              {
+                name: 'Адастрис',
+                class: GameClass.ROGUE,
+                spec: PlayerSpec.ASSASINATION,
+                role: RaidRole.DPS,
+              },
+              {
+                name: 'Правнучка',
+                class: GameClass.SHAMAN,
+                spec: PlayerSpec.ELEMENTAL,
+                role: RaidRole.DPS,
+              },
+              {
+                name: 'Блекфлэймх',
+                class: GameClass.WARLOCK,
+                spec: PlayerSpec.AFFLICTION,
+                role: RaidRole.DPS,
+              },
+              {
+                name: 'Эрикбладс',
+                class: GameClass.WARRIOR,
+                spec: PlayerSpec.FURY,
+                role: RaidRole.DPS,
+              },
+              {
+                name: 'Диклонот',
+                class: GameClass.PALADIN,
+                spec: PlayerSpec.HOLY,
+                role: RaidRole.HEALER,
+              },
               {
                 name: 'Мурдра',
                 class: GameClass.PRIEST,
-                spec: PriestSpec.DISCIPLINE,
+                spec: PlayerSpec.DISCIPLINE,
+                role: RaidRole.HEALER,
+              },
+              {
+                name: 'Яшермамочка',
+                class: GameClass.EVOKER,
+                spec: PlayerSpec.PRESERVATION,
+                role: RaidRole.HEALER,
+              },
+              {
+                name: 'Дримтэйл',
+                class: GameClass.SHAMAN,
+                spec: PlayerSpec.RESOTRATION,
                 role: RaidRole.HEALER,
               },
             ],
@@ -125,11 +280,12 @@ export default defineComponent({
           {
             name: VaultOfIncaratesBosses.RASZAGETH,
             img: raszagethImage,
+            defeated: false,
             participants: [
               {
                 name: 'Мурдра',
                 class: GameClass.PRIEST,
-                spec: PriestSpec.DISCIPLINE,
+                spec: PlayerSpec.DISCIPLINE,
                 role: RaidRole.HEALER,
               },
             ],
@@ -204,6 +360,16 @@ button,
 
 h1 {
   font-size: 40px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  margin: 0;
 }
 </style>
 
