@@ -1,5 +1,6 @@
 <template>
-  <div
+  <RLink
+    :to="playerProfileURL"
     class="raid-player"
     :class="{ [playerClass]: true, [playerSpec]: true }"
   >
@@ -12,14 +13,17 @@
     >
       {{ name }}
     </div>
-  </div>
+  </RLink>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import { GameClass, PlayerSpec } from '@/enums';
+import { BASE_PLAYER_URL } from '@/constants';
+import RLink from '@/components/reusable/RLink.vue';
 
 export default defineComponent({
+  components: { RLink },
   props: {
     name: {
       type: String,
@@ -44,12 +48,18 @@ export default defineComponent({
       default: false,
     },
   },
+  computed: {
+    playerProfileURL() {
+      return new URL(this.name, BASE_PLAYER_URL).href;
+    },
+  },
 });
 </script>
 
 <style scoped>
 .raid-player {
   display: flex;
+  text-decoration: none;
   gap: 5px;
 }
 

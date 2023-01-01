@@ -69,8 +69,8 @@ export default defineComponent({
   background-size: cover;
   max-width: 1440px;
   width: 100%;
-  height: 800px;
-  min-height: 800px;
+  height: var(--standard-block-height);
+  min-height: var(--standard-block-height);
 }
 
 .title {

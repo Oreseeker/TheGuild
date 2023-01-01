@@ -10,9 +10,8 @@
       </figcaption>
     </figure>
     <GuildRaidBossesStatsPopup
-      v-if="showBossFightPopup"
       :boss="boss"
-      @close="showBossFightPopup = false"
+      v-model="showBossFightPopup"
     />
   </div>
 </template>

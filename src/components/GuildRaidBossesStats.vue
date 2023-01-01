@@ -1,29 +1,47 @@
 <template>
-  <div class="guild-raid-bosses-stats">
-    <h1>Побеждённые боссы</h1>
-    <div class="bosses">
-      <RaidBoss
-        v-for="(boss, index) in stats.bosses"
-        :key="index"
-        :boss="boss"
-      />
+    <div class="guild-raid-bosses-stats">
+      <h1>Побеждённые боссы в {{ difficultyText }} режиме</h1>
+      <div class="bosses">
+        <RaidBoss
+          v-for="(boss, index) in bosses"
+          :key="index"
+          :boss="boss"
+        />
+      </div>
     </div>
-  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import RaidBossProgress from '@/components/RaidBossProgress.vue';
 import RaidBoss from '@/components/RaidBoss.vue';
 import GuildRaidBossesStatsPopup from '@/components/reusable/GuildRaidBossesStatsPopup.vue';
+import { RaidDifficulty } from '@/enums';
 
 export default defineComponent({
   // eslint-disable-next-line vue/no-unused-components
   components: { GuildRaidBossesStatsPopup, RaidBoss, RaidBossProgress },
   props: {
-    stats: {
-      type: Object,
+    difficulty: {
+      type: String as PropType<RaidDifficulty>,
       required: true,
+      validator(val: any) {
+        return Object.values(RaidDifficulty).includes(val);
+      },
+    },
+    bosses: {
+      type: Array,
+      required: true,
+    },
+  },
+  computed: {
+    difficultyText() {
+      const difficultyTextVariants = {
+        [RaidDifficulty.NORMAL]: 'обычном',
+        [RaidDifficulty.HEROIC]: 'героическом',
+        [RaidDifficulty.MYTHIC]: 'эпохальном',
+      };
+      return difficultyTextVariants[this.difficulty];
     },
   },
 });
@@ -34,8 +52,6 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  padding: 20px;
 }
 
 .bosses {

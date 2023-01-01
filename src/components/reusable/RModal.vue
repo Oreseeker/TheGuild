@@ -1,10 +1,16 @@
 <template>
   <Teleport to="body">
-    <RBackdrop v-bind="$attrs">
-      <div class="content">
-        <slot/>
-      </div>
-    </RBackdrop>
+    <Transition>
+        <RBackdrop
+          v-if="modelValue"
+          v-bind="$attrs"
+          @close="$emit('update:modelValue', false)"
+        >
+          <div class="content">
+            <slot/>
+          </div>
+        </RBackdrop>
+      </Transition>
   </Teleport>
 </template>
 
@@ -14,6 +20,12 @@ import RBackdrop from '@/components/reusable/RBackdrop.vue';
 
 export default defineComponent({
   components: { RBackdrop },
+  props: {
+    modelValue: {
+      type: Boolean,
+      required: true,
+    },
+  },
 });
 </script>
 
@@ -22,5 +34,20 @@ export default defineComponent({
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 90vh;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.v-enter-to,
+.v-leave-from {
+  opacity: 1;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 100ms linear;
 }
 </style>

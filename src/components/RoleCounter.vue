@@ -6,6 +6,7 @@
     />
     <div class="number-of-role-participants">
       {{ counter }}
+      <span v-if="numberOfPugs">+ {{ numberOfPugs }}</span>
     </div>
   </div>
 </template>
@@ -27,6 +28,10 @@ export default defineComponent({
       type: Number,
       required: true,
     },
+    numberOfPugs: {
+      type: Number,
+      default: 0,
+    },
   },
 });
 </script>
@@ -40,8 +45,7 @@ export default defineComponent({
 }
 
 .number-of-role-participants {
-  width: 24px;
-  min-width: 24px;
+
 }
 
 .role {

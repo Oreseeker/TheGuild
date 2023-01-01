@@ -27,7 +27,7 @@ export enum PlayerSpec {
   FROST = 'frost',
   FIRE = 'fire',
   BLOOD = 'blood',
-  ARCANCE = 'arcance',
+  ARCANE = 'arcane',
   UNHOLY = 'unholy',
   ELEMENTAL = 'elemental',
   ENHANCEMENT = 'enhancement',

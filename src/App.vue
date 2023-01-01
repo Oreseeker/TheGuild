@@ -1,298 +1,158 @@
 <template>
   <div class="app" id="app">
     <div class="wrapper">
+      <GuildIntro class="intro"/>
+      <GuildDescription class="description"/>
       <GuildRaidBriefStats
-        title="Хранилище Воплощений"
+        title="Наш прогресс в хранилище воплощений"
         :number-of-raid-bosses="8"
+        @click:raid="onRaidDifficultyClick"
       />
-      <GuildRaidBossesStats
-        :stats="vaultOfIncarnatesStats"
-      />
+      <div class="block">
+        <Transition>
+          <GuildRaidBossesStats
+            v-if="activeStats"
+            :key="activeStats.difficulty"
+            :bosses="activeStats.bosses"
+            :difficulty="activeStats.difficulty"
+            class="raid-stats"
+          />
+        </Transition>
+      </div>
     </div>
+    <TheFooter/>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import '@/assets/css/global.css';
+import GuildIntro from '@/components/GuildIntro.vue';
 import GuildRaidBriefStats from '@/components/GuildRaidBriefStats.vue';
 import GuildRaidBossesStats from '@/components/GuildRaidBossesStats.vue';
-import {
-  GameClass,
-  VaultOfIncaratesBosses,
-  RaidRole,
-  PlayerSpec,
-} from '@/enums';
+import GuildDescription from '@/components/GuildDescription.vue';
 
-import eranogImage from '@/assets/bosses/eranog.png';
-import terrosImage from '@/assets/bosses/terros.png';
-import councilImage from '@/assets/bosses/council.png';
-import sennarthImage from '@/assets/bosses/sennarth.png';
-import datheaImage from '@/assets/bosses/dathea.png';
-import kurogImage from '@/assets/bosses/kurog.png';
-import diurnaImage from '@/assets/bosses/diurna.png';
-import raszagethImage from '@/assets/bosses/raszageth.png';
+import { normalEranog } from '@/data/sanctum_of_incarnation/normal/eranog';
+import { normalTerros } from '@/data/sanctum_of_incarnation/normal/terros';
+import { normalPrimalCouncil } from '@/data/sanctum_of_incarnation/normal/primal_council';
+import { normalSennarth } from '@/data/sanctum_of_incarnation/normal/sennarth';
+import { normalDathea } from '@/data/sanctum_of_incarnation/normal/dathea';
+import { normalKurog } from '@/data/sanctum_of_incarnation/normal/kurog';
+import { normalDiurna } from '@/data/sanctum_of_incarnation/normal/diurna';
+import { normalRaszageth } from '@/data/sanctum_of_incarnation/normal/raszageth';
+
+import { heroicEranog } from '@/data/sanctum_of_incarnation/heroic/eranog';
+import { heroicTerros } from '@/data/sanctum_of_incarnation/heroic/terros';
+import { heroicPrimalCouncil } from '@/data/sanctum_of_incarnation/heroic/primal_council';
+import { heroicSennarth } from '@/data/sanctum_of_incarnation/heroic/sennarth';
+import { heroicDathea } from '@/data/sanctum_of_incarnation/heroic/dathea';
+import { heroicKurog } from '@/data/sanctum_of_incarnation/heroic/kurog';
+import { heroicDiurna } from '@/data/sanctum_of_incarnation/heroic/diurna';
+import { heroicRaszageth } from '@/data/sanctum_of_incarnation/heroic/raszageth';
+
+import { mythicEranog } from '@/data/sanctum_of_incarnation/mythic/eranog';
+import { mythicTerros } from '@/data/sanctum_of_incarnation/mythic/terros';
+import { mythicPrimalCouncil } from '@/data/sanctum_of_incarnation/mythic/primal_council';
+import { mythicSennarth } from '@/data/sanctum_of_incarnation/mythic/sennarth';
+import { mythicDathea } from '@/data/sanctum_of_incarnation/mythic/dathea';
+import { mythicKurog } from '@/data/sanctum_of_incarnation/mythic/kurog';
+import { mythicDiurna } from '@/data/sanctum_of_incarnation/mythic/diurna';
+import { mythicRaszageth } from '@/data/sanctum_of_incarnation/mythic/raszageth';
+
+import { RaidDifficulty } from '@/enums';
+import TheFooter from '@/components/TheFooter/TheFooter.vue';
+
+type Bosses = any[];
+
+type Raid = {
+  bosses: Bosses;
+}
+
+type VaultOfIncarnatesStats = Record<RaidDifficulty, Raid>
+
+type ActiveStats = {
+  difficulty: RaidDifficulty;
+  bosses: Bosses;
+} | null;
 
 export default defineComponent({
   components: {
+    GuildIntro,
+    TheFooter,
     GuildRaidBossesStats,
     GuildRaidBriefStats,
+    GuildDescription,
   },
   data() {
-    return {
-      vaultOfIncarnatesStats: {
+    const vaultOfIncarnatesStats: VaultOfIncarnatesStats = {
+      [RaidDifficulty.NORMAL]: {
         bosses: [
-          {
-            name: VaultOfIncaratesBosses.ERANOG,
-            img: eranogImage,
-            defeated: true,
-            participants: [
-              {
-                name: 'Мурдра',
-                class: GameClass.PRIEST,
-                spec: PlayerSpec.DISCIPLINE,
-                role: RaidRole.HEALER,
-              },
-            ],
-          },
-          {
-            name: VaultOfIncaratesBosses.TERROS,
-            img: terrosImage,
-            defeated: true,
-            participants: [
-              {
-                name: 'Мурдра',
-                class: GameClass.PRIEST,
-                spec: PlayerSpec.DISCIPLINE,
-                role: RaidRole.HEALER,
-              },
-            ],
-          },
-          {
-            name: VaultOfIncaratesBosses.PRIMAL_COUNCIL,
-            img: councilImage,
-            defeated: true,
-            participants: [
-              {
-                name: 'Мурдра',
-                class: GameClass.PRIEST,
-                spec: PlayerSpec.DISCIPLINE,
-                role: RaidRole.HEALER,
-              },
-            ],
-          },
-          {
-            name: VaultOfIncaratesBosses.SENNARTH,
-            img: sennarthImage,
-            defeated: true,
-            participants: [
-              {
-                name: 'Мурдра',
-                class: GameClass.PRIEST,
-                spec: PlayerSpec.DISCIPLINE,
-                role: RaidRole.HEALER,
-              },
-            ],
-          },
-          {
-            name: VaultOfIncaratesBosses.DATHEA,
-            img: datheaImage,
-            defeated: true,
-            participants: [
-              {
-                name: 'Мурдра',
-                class: GameClass.PRIEST,
-                spec: PlayerSpec.DISCIPLINE,
-                role: RaidRole.HEALER,
-              },
-            ],
-          },
-          {
-            name: VaultOfIncaratesBosses.KUROG,
-            img: kurogImage,
-            defeated: true,
-            participants: [
-              {
-                name: 'Мурдра',
-                class: GameClass.PRIEST,
-                spec: PlayerSpec.DISCIPLINE,
-                role: RaidRole.HEALER,
-              },
-            ],
-          },
-          {
-            name: VaultOfIncaratesBosses.DIURNA,
-            img: diurnaImage,
-            defeated: true,
-            datetime: '2022-12-25T16:46:00.000Z',
-            participants: [
-              {
-                name: 'Мантагро',
-                class: GameClass.DEATH_KNIGHT,
-                spec: PlayerSpec.BLOOD,
-                role: RaidRole.TANK,
-              },
-              {
-                name: 'Маггрубер',
-                class: GameClass.PALADIN,
-                spec: PlayerSpec.PROTECTION,
-                role: RaidRole.TANK,
-              },
-              {
-                name: 'Чарджкиса',
-                class: GameClass.WARRIOR,
-                spec: PlayerSpec.PROTECTION,
-                role: RaidRole.TANK,
-              },
-              {
-                name: 'Аригай',
-                class: GameClass.DEATH_KNIGHT,
-                spec: PlayerSpec.FROST,
-                role: RaidRole.DPS,
-              },
-              {
-                name: 'Макгрувер',
-                class: GameClass.DEATH_KNIGHT,
-                spec: PlayerSpec.FROST,
-                role: RaidRole.DPS,
-              },
-              {
-                name: 'Илаз',
-                class: GameClass.DEMON_HUNTER,
-                spec: PlayerSpec.HAVOC,
-                role: RaidRole.DPS,
-              },
-              {
-                name: 'Фаеван',
-                class: GameClass.EVOKER,
-                spec: PlayerSpec.DEVASTATION,
-                role: RaidRole.DPS,
-              },
-              {
-                name: 'Грушонычь',
-                class: GameClass.HUNTER,
-                spec: PlayerSpec.MARKSMANSHIP,
-                role: RaidRole.DPS,
-              },
-              {
-                name: 'Добрыйклыкач',
-                class: GameClass.HUNTER,
-                spec: PlayerSpec.BEAST_MASTER,
-                role: RaidRole.DPS,
-              },
-              {
-                name: 'Кавадор',
-                class: GameClass.HUNTER,
-                spec: PlayerSpec.BEAST_MASTER,
-                role: RaidRole.DPS,
-              },
-              {
-                name: 'Кхуун',
-                class: GameClass.HUNTER,
-                spec: PlayerSpec.BEAST_MASTER,
-                role: RaidRole.DPS,
-              },
-              {
-                name: 'Уайлен',
-                class: GameClass.HUNTER,
-                spec: PlayerSpec.MARKSMANSHIP,
-                role: RaidRole.DPS,
-              },
-              {
-                name: 'Элуизка',
-                class: GameClass.HUNTER,
-                spec: PlayerSpec.BEAST_MASTER,
-                role: RaidRole.DPS,
-              },
-              {
-                name: 'Калючечка',
-                class: GameClass.MAGE,
-                spec: PlayerSpec.FIRE,
-                role: RaidRole.DPS,
-              },
-              {
-                name: 'Визериз',
-                class: GameClass.MONK,
-                spec: PlayerSpec.WINDWALKER,
-                role: RaidRole.DPS,
-              },
-              {
-                name: 'Моргиус',
-                class: GameClass.PALADIN,
-                spec: PlayerSpec.RETRIBUTION,
-                role: RaidRole.DPS,
-              },
-              {
-                name: 'Йорданиэль',
-                class: GameClass.PRIEST,
-                spec: PlayerSpec.SHADOW,
-                role: RaidRole.DPS,
-              },
-              {
-                name: 'Адастрис',
-                class: GameClass.ROGUE,
-                spec: PlayerSpec.ASSASINATION,
-                role: RaidRole.DPS,
-              },
-              {
-                name: 'Правнучка',
-                class: GameClass.SHAMAN,
-                spec: PlayerSpec.ELEMENTAL,
-                role: RaidRole.DPS,
-              },
-              {
-                name: 'Блекфлэймх',
-                class: GameClass.WARLOCK,
-                spec: PlayerSpec.AFFLICTION,
-                role: RaidRole.DPS,
-              },
-              {
-                name: 'Эрикбладс',
-                class: GameClass.WARRIOR,
-                spec: PlayerSpec.FURY,
-                role: RaidRole.DPS,
-              },
-              {
-                name: 'Диклонот',
-                class: GameClass.PALADIN,
-                spec: PlayerSpec.HOLY,
-                role: RaidRole.HEALER,
-              },
-              {
-                name: 'Мурдра',
-                class: GameClass.PRIEST,
-                spec: PlayerSpec.DISCIPLINE,
-                role: RaidRole.HEALER,
-              },
-              {
-                name: 'Яшермамочка',
-                class: GameClass.EVOKER,
-                spec: PlayerSpec.PRESERVATION,
-                role: RaidRole.HEALER,
-              },
-              {
-                name: 'Дримтэйл',
-                class: GameClass.SHAMAN,
-                spec: PlayerSpec.RESOTRATION,
-                role: RaidRole.HEALER,
-              },
-            ],
-          },
-          {
-            name: VaultOfIncaratesBosses.RASZAGETH,
-            img: raszagethImage,
-            defeated: false,
-            participants: [
-              {
-                name: 'Мурдра',
-                class: GameClass.PRIEST,
-                spec: PlayerSpec.DISCIPLINE,
-                role: RaidRole.HEALER,
-              },
-            ],
-          },
+          normalEranog,
+          normalTerros,
+          normalPrimalCouncil,
+          normalSennarth,
+          normalDathea,
+          normalKurog,
+          normalDiurna,
+          normalRaszageth,
+        ],
+      },
+      [RaidDifficulty.HEROIC]: {
+        bosses: [
+          heroicEranog,
+          heroicTerros,
+          heroicPrimalCouncil,
+          heroicSennarth,
+          heroicDathea,
+          heroicKurog,
+          heroicDiurna,
+          heroicRaszageth,
+        ],
+      },
+      [RaidDifficulty.MYTHIC]: {
+        bosses: [
+          mythicEranog,
+          mythicTerros,
+          mythicPrimalCouncil,
+          mythicSennarth,
+          mythicDathea,
+          mythicKurog,
+          mythicDiurna,
+          mythicRaszageth,
         ],
       },
     };
+
+    const activeStats: ActiveStats = null;
+
+    return {
+      activeStats,
+      vaultOfIncarnatesStats,
+    };
+  },
+  methods: {
+    setActiveStats() {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      this.activeStats = {
+        difficulty: RaidDifficulty.NORMAL,
+        bosses: this.vaultOfIncarnatesStats.normal.bosses,
+      };
+    },
+    onRaidDifficultyClick(difficulty: RaidDifficulty) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      this.activeStats = {
+        difficulty,
+        bosses: this.vaultOfIncarnatesStats[difficulty].bosses,
+      };
+    },
+  },
+  created() {
+    document.title = 'Зверинец Владыки';
+  },
+  mounted() {
+    this.setActiveStats();
   },
 });
 </script>
@@ -333,7 +193,8 @@ select {
   min-height: 100vh;
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   overflow: auto;
 }
 
@@ -374,9 +235,14 @@ li {
 </style>
 
 <style scoped>
+.intro {
+  margin: 0 0 40px 0;
+}
+
 .app {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -386,5 +252,34 @@ li {
   align-items: center;
   max-width: 1440px;
   width: 100%;
+}
+
+.v-enter-to,
+.v-leave-from {
+  opacity: 1;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 100ms linear;
+}
+
+.block {
+  position: relative;
+  width: 100%;
+  display: flex;
+}
+
+.raid-stats:not(:first-child) {
+  margin-left: -100%;
+}
+
+.description {
+  margin: 0 0 40px 0;
 }
 </style>

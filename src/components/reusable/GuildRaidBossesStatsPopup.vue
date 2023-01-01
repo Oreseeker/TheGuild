@@ -9,7 +9,7 @@
         {{ boss.name }}
       </h1>
       <div class="defeated">
-        Побеждена: {{ datetime }}
+        Босс побеждён {{ datetime }} составом
       </div>
       <div class="setup">
         <RoleCounter
@@ -17,6 +17,7 @@
           :key="index"
           :counter="role.counter"
           :role="role.title"
+          :number-of-pugs="role.numberOfPugs"
         />
       </div>
       <div class="participants">
@@ -103,19 +104,22 @@ export default defineComponent({
         {
           title: RaidRole.TANK,
           counter: this.tanks.length,
+          numberOfPugs: this.boss?.pugs?.tanks,
         },
         {
           title: RaidRole.HEALER,
           counter: this.healers.length,
+          numberOfPugs: this.boss?.pugs?.healers,
         },
         {
           title: RaidRole.DPS,
           counter: this.dps.length,
+          numberOfPugs: this.boss?.pugs?.dps,
         },
       ];
     },
     datetime() {
-      return this.displayDatetime(this.boss.datetime);
+      return this.displayDatetime(this.boss!.datetime);
     },
   },
   methods: {
@@ -129,6 +133,8 @@ export default defineComponent({
         hour: 'numeric',
         minute: 'numeric',
       };
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       return new Intl.DateTimeFormat('ru', DateTimeOptions).format(date);
     },
   },
@@ -140,7 +146,7 @@ export default defineComponent({
   border-radius: 10px;
   width: 700px;
   padding: 20px;
-  background-color: #281406;
+  background-color: var(--popup-background);
   display: flex;
   flex-direction: column;
   align-items: center;

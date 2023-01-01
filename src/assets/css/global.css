@@ -1,0 +1,15 @@
+:root {
+  --standard-block-height: 800px;
+  --standard-block-padding: 20px;
+
+  --popup-background: #281406;
+
+  --footer-top-border: #65340f;
+}
+
+.standard-block {
+  height: var(--standard-block-height);
+  min-height: var(--standard-block-height);
+  padding: var(--standard-block-padding);
+  width: 100%;
+}
