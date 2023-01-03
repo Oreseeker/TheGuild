@@ -5,3 +5,4 @@ export * from './game_class';
 export * from './WarriorSpec';
 export * from './PriestSpec';
 export * from './PlayerSpec';
+export * from './routes';

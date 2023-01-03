@@ -4,13 +4,14 @@ import {
   RaidRole,
   VaultOfIncaratesBosses,
 } from '@/enums';
-import primalCouncilImage from '@/assets/bosses/council.png';
+import primalCouncilImage from '@/assets/bosses/council2.png';
 
 export const normalPrimalCouncil = {
   name: VaultOfIncaratesBosses.PRIMAL_COUNCIL,
   img: primalCouncilImage,
   defeated: true,
   datetime: '2022-12-17T18:18:00.000Z',
+  warcraftLogsLink: 'https://www.warcraftlogs.com/reports/kQMKzCj39byhXN8c#fight=33',
   pugs: {
     tanks: 1,
   },

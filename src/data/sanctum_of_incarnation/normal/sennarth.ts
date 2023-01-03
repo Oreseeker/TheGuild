@@ -4,13 +4,14 @@ import {
   RaidRole,
   VaultOfIncaratesBosses,
 } from '@/enums';
-import sennarthImage from '@/assets/bosses/sennarth.png';
+import sennarthImage from '@/assets/bosses/sennarth2.png';
 
 export const normalSennarth = {
   name: VaultOfIncaratesBosses.SENNARTH,
   img: sennarthImage,
   defeated: true,
   datetime: '2022-12-18T17:02:00.000Z',
+  warcraftLogsLink: 'https://www.warcraftlogs.com/reports/v9zBCmAVqtZDhf4g#fight=11',
   pugs: {
     tanks: 1,
   },

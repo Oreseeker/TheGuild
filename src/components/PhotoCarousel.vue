@@ -1,22 +1,26 @@
 <template>
   <div class="photo-carousel">
     <div
-      class="previos"
+      class="navigation-control previous"
+      :class="{ disabled: disableNavigation }"
       @click="onPreviousClick"
-    >
-      left
-    </div>
+    />
     <div class="photo">
-      <Transition :name="transitionName">
+      <Transition
+        :name="transitionName"
+        @before-enter="onBeforeEnter"
+        @after-enter="onAfterEnter"
+        @before-leave="onBeforeLeave"
+        @after-leave="onAfterLeave"
+      >
         <img :src="activePhoto.url" alt="photo" :key="activePhoto.url">
       </Transition>
     </div>
     <div
-      class="next"
+      class="navigation-control next"
+      :class="{ disabled: disableNavigation }"
       @click="onNextClick"
-    >
-      right
-    </div>
+    />
   </div>
 </template>
 
@@ -42,6 +46,7 @@ export default defineComponent({
         url: '',
       },
       transitionName: PhotoCarouselTransitionName.NEXT,
+      disableNavigation: false,
     };
   },
   methods: {
@@ -59,6 +64,18 @@ export default defineComponent({
       const url = this.photos[newIndex];
       this.activePhoto = { index: newIndex, url };
     },
+    onBeforeEnter() {
+      this.disableNavigation = true;
+    },
+    onAfterEnter() {
+      this.disableNavigation = false;
+    },
+    onBeforeLeave() {
+      this.disableNavigation = true;
+    },
+    onAfterLeave() {
+      this.disableNavigation = false;
+    },
   },
   created() {
     // eslint-disable-next-line prefer-destructuring
@@ -69,10 +86,11 @@ export default defineComponent({
 
 <style scoped>
 .photo-carousel {
-  --photo-width: 200px;
-  --photo-height: 100px;
+  --photo-width: 500px;
+  --photo-height: 300px;
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .photo {
@@ -113,6 +131,26 @@ img {
 .next-leave-active,
 .previous-enter-active,
 .previous-leave-active {
-  transition: left 1400ms linear;
+  transition: left 400ms linear;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.navigation-control {
+  background: url('@/assets/chevron-right.svg') no-repeat center;
+  background-size: 150%;
+  width: 30px;
+  height: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.previous {
+  transform: rotate(-180deg);
 }
 </style>

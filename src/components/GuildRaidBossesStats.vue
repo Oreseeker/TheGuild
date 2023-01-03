@@ -1,5 +1,5 @@
 <template>
-    <div class="guild-raid-bosses-stats">
+    <div class="standard-block guild-raid-bosses-stats">
       <h1>Побеждённые боссы в {{ difficultyText }} режиме</h1>
       <div class="bosses">
         <RaidBoss
@@ -52,6 +52,7 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: auto;
 }
 
 .bosses {

@@ -15,6 +15,8 @@
     :to="to"
     :class="classes"
     v-bind="$attrs"
+    active-class="r-link-active"
+    exact-active-class="r-link-exact-active"
   >
     <slot
       v-bind="slotProps"

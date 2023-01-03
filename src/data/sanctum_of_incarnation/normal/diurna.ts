@@ -4,13 +4,14 @@ import {
   RaidRole,
   VaultOfIncaratesBosses,
 } from '@/enums';
-import diurnaImage from '@/assets/bosses/diurna.png';
+import diurnaImage from '@/assets/bosses/diurna2.png';
 
 export const normalDiurna = {
   name: VaultOfIncaratesBosses.DIURNA,
   img: diurnaImage,
   defeated: true,
   datetime: '2022-12-25T16:46:00.000Z',
+  warcraftLogsLink: 'https://www.warcraftlogs.com/reports/DTkn1yf8La2GwJK6#fight=6',
   participants: [
     {
       name: 'Мантагро',

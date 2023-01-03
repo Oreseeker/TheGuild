@@ -1,7 +1,7 @@
 import {
   VaultOfIncaratesBosses,
 } from '@/enums';
-import primalCouncilImage from '@/assets/bosses/council.png';
+import primalCouncilImage from '@/assets/bosses/council2.png';
 
 export const mythicPrimalCouncil = {
   name: VaultOfIncaratesBosses.PRIMAL_COUNCIL,

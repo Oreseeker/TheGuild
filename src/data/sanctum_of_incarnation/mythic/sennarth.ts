@@ -1,7 +1,7 @@
 import {
   VaultOfIncaratesBosses,
 } from '@/enums';
-import sennarthImage from '@/assets/bosses/sennarth.png';
+import sennarthImage from '@/assets/bosses/sennarth2.png';
 
 export const mythicSennarth = {
   name: VaultOfIncaratesBosses.SENNARTH,

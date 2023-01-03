@@ -4,13 +4,14 @@ import {
   RaidRole,
   VaultOfIncaratesBosses,
 } from '@/enums';
-import terrosImage from '@/assets/bosses/terros.png';
+import terrosImage from '@/assets/bosses/terros2.png';
 
 export const normalTerros = {
   name: VaultOfIncaratesBosses.TERROS,
   img: terrosImage,
   defeated: true,
   datetime: '2022-12-17T17:36:00.000Z',
+  warcraftLogsLink: 'https://www.warcraftlogs.com/reports/kQMKzCj39byhXN8c#fight=17',
   pugs: {
     tanks: 1,
   },

@@ -1,12 +1,12 @@
 import {
   VaultOfIncaratesBosses,
 } from '@/enums';
-import raszagethImage from '@/assets/bosses/raszageth.png';
+import raszagethImage from '@/assets/bosses/raszageth2.png';
 
 export const heroicRaszageth = {
   name: VaultOfIncaratesBosses.RASZAGETH,
   img: raszagethImage,
   defeated: false,
-  datetime: '??2022-12-25T16:46:00.000Z',
+  datetime: '2022-01-03T18:14:00.000Z',
   participants: [],
 };

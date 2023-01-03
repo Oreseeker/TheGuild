@@ -4,13 +4,14 @@ import {
   RaidRole,
   VaultOfIncaratesBosses,
 } from '@/enums';
-import kurogImage from '@/assets/bosses/kurog.png';
+import kurogImage from '@/assets/bosses/kurog2.png';
 
 export const normalKurog = {
   name: VaultOfIncaratesBosses.KUROG,
   img: kurogImage,
   defeated: true,
   datetime: '2022-12-24T18:48:00.000Z',
+  warcraftLogsLink: 'https://www.warcraftlogs.com/reports/m8h7ynkP9fKjZtBr#fight=last',
   pugs: {
     dps: 1,
   },

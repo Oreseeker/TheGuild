@@ -1,7 +1,7 @@
 import {
   VaultOfIncaratesBosses,
 } from '@/enums';
-import diurnaImage from '@/assets/bosses/diurna.png';
+import diurnaImage from '@/assets/bosses/diurna2.png';
 
 export const mythicDiurna = {
   name: VaultOfIncaratesBosses.DIURNA,

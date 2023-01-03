@@ -20,6 +20,7 @@
           :number-of-pugs="role.numberOfPugs"
         />
       </div>
+      <RLink :to="boss.warcraftLogsLink" class="log-link">Лог боя на Warcraft Logs</RLink>
       <div class="participants">
         <div class="tanks">
           <h3>Танки:</h3>
@@ -34,6 +35,9 @@
                 :name="tank.name"
                 show-icon
               />
+            </li>
+            <li v-if="boss?.pugs?.tanks">
+              + {{ numberOfPeopleText(boss.pugs.tanks) }} не из гильдии
             </li>
           </ul>
         </div>
@@ -51,6 +55,9 @@
                 show-icon
               />
             </li>
+            <li v-if="boss?.pugs?.healers">
+              + {{ numberOfPeopleText(boss.pugs.healers) }} не из гильдии
+            </li>
           </ul>
         </div>
         <div class="dps">
@@ -67,6 +74,9 @@
                 show-icon
               />
             </li>
+            <li v-if="boss?.pugs?.dps">
+              + {{ numberOfPeopleText(boss.pugs.dps) }} не из гильдии
+            </li>
           </ul>
         </div>
       </div>
@@ -78,11 +88,17 @@
 import { defineComponent } from 'vue';
 import RModal from '@/components/reusable/RModal.vue';
 import RoleCounter from '@/components/RoleCounter.vue';
+import RLink from '@/components/reusable/RLink.vue';
 import { RaidRole } from '@/enums';
 import RaidPlayer from '@/components/reusable/RaidPlayer.vue';
 
 export default defineComponent({
-  components: { RaidPlayer, RoleCounter, RModal },
+  components: {
+    RaidPlayer,
+    RoleCounter,
+    RModal,
+    RLink,
+  },
   props: {
     boss: {
       type: Object,
@@ -137,6 +153,10 @@ export default defineComponent({
       // @ts-ignore
       return new Intl.DateTimeFormat('ru', DateTimeOptions).format(date);
     },
+    numberOfPeopleText(number: number) {
+      if ([2,3,4].includes(number)) return `${number} человека`;
+      return `${number} человек`;
+    },
   },
 });
 </script>
@@ -183,5 +203,14 @@ export default defineComponent({
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+}
+
+.log-link {
+  margin: 20px 0;
+  transition: all 100ms linear;
+}
+
+.log-link:hover {
+  color: lightgray;
 }
 </style>

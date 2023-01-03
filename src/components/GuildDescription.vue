@@ -38,10 +38,12 @@ export default defineComponent({
 
 .content {
   display: flex;
+  justify-content: center;
 }
 
 p {
   font-size: 18px;
-  max-width: 800px;
+  flex-grow: 1;
+  max-width: 700px;
 }
 </style>

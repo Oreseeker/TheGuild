@@ -1,7 +1,7 @@
 import {
   VaultOfIncaratesBosses,
 } from '@/enums';
-import kurogImage from '@/assets/bosses/kurog.png';
+import kurogImage from '@/assets/bosses/kurog2.png';
 
 export const mythicKurog = {
   name: VaultOfIncaratesBosses.KUROG,

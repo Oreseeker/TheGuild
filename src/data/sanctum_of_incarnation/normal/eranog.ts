@@ -5,13 +5,14 @@ import {
   VaultOfIncaratesBosses,
 } from '@/enums';
 
-import eranogImage from '@/assets/bosses/eranog.png';
+import eranogImage from '@/assets/bosses/eranog2.png';
 
 export const normalEranog = {
   name: VaultOfIncaratesBosses.ERANOG,
   img: eranogImage,
   defeated: true,
   datetime: '2022-12-17T16:14:00.000Z',
+  warcraftLogsLink: 'https://www.warcraftlogs.com/reports/kQMKzCj39byhXN8c#fight=4',
   pugs: {
     tanks: 1,
   },

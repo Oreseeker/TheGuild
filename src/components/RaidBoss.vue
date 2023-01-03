@@ -62,4 +62,9 @@ figcaption {
   pointer-events: none;
   filter: grayscale(2);
 }
+
+img {
+  width: 380px;
+  height: 200px;
+}
 </style>

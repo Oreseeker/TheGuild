@@ -1,7 +1,7 @@
 import {
   VaultOfIncaratesBosses,
 } from '@/enums';
-import raszagethImage from '@/assets/bosses/raszageth.png';
+import raszagethImage from '@/assets/bosses/raszageth2.png';
 
 export const mythicRaszageth = {
   name: VaultOfIncaratesBosses.RASZAGETH,

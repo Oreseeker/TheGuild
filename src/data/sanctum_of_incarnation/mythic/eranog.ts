@@ -2,7 +2,7 @@ import {
   VaultOfIncaratesBosses,
 } from '@/enums';
 
-import eranogImage from '@/assets/bosses/eranog.png';
+import eranogImage from '@/assets/bosses/eranog2.png';
 
 export const mythicEranog = {
   name: VaultOfIncaratesBosses.ERANOG,
