@@ -11,18 +11,16 @@
         старые рейды). Раз в месяц проводятся развлекательные мероприятия с призовыми местами:
         битва трансмогов, прятки, гильдейский PVP-турнир. Приглашаем тебя вступить в наши ряды!
       </p>
-      <PhotoCarousel/>
+<!--      <PhotoCarousel/>-->
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import PhotoCarousel from '@/components/PhotoCarousel.vue';
 
 export default defineComponent({
   components: {
-    PhotoCarousel,
   },
 });
 </script>
@@ -38,12 +36,10 @@ export default defineComponent({
 
 .content {
   display: flex;
-  justify-content: center;
 }
 
 p {
   font-size: 18px;
   flex-grow: 1;
-  max-width: 700px;
 }
 </style>

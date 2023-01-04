@@ -50,6 +50,7 @@ export default defineComponent({
   },
   computed: {
     playerProfileURL() {
+      console.log('BASE_PLAYER_URL', BASE_PLAYER_URL);
       return new URL(this.name, BASE_PLAYER_URL).href;
     },
   },

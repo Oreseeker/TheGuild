@@ -84,7 +84,7 @@ export const normalEranog = {
       role: RaidRole.DPS,
     },
     {
-      name: 'Амандриэль',
+      name: 'Амандриель',
       class: GameClass.MAGE,
       spec: PlayerSpec.ARCANE,
       role: RaidRole.DPS,

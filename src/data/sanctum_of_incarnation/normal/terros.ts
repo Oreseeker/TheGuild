@@ -77,7 +77,7 @@ export const normalTerros = {
       role: RaidRole.DPS,
     },
     {
-      name: 'Амандриэль',
+      name: 'Амандриель',
       class: GameClass.MAGE,
       spec: PlayerSpec.ARCANE,
       role: RaidRole.DPS,
