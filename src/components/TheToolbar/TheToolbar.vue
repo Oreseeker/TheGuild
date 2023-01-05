@@ -1,19 +1,13 @@
 <template>
   <nav class="the-toolbar">
     <RLink :to="logoLink" class="logo">Зверинец Владыки</RLink>
-    <RLink
-      v-for="item in menu"
-      :key="item.to.name"
-      :to="item.to"
-      class="nav-link"
-    >
-      {{ item.text }}
-    </RLink>
+    <NavigationMenu class="navigation-menu"/>
     <div class="social-links">
       <TheFooterButton type="discord"/>
       <TheFooterButton type="youtube"/>
       <TheFooterButton type="twitch"/>
     </div>
+    <BurgerMenu class="burger-menu"/>
   </nav>
 </template>
 
@@ -22,9 +16,13 @@ import { defineComponent } from 'vue';
 import RLink from '@/components/reusable/RLink.vue';
 import TheFooterButton from '@/components/TheFooter/TheFooterButton.vue';
 import { RouteName } from '@/enums';
+import BurgerMenu from '@/components/BurgerMenu.vue';
+import NavigationMenu from '@/components/NavigationMenu.vue';
 
 export default defineComponent({
   components: {
+    NavigationMenu,
+    BurgerMenu,
     RLink,
     TheFooterButton,
   },
@@ -72,6 +70,7 @@ export default defineComponent({
   font-size: 25px;
   margin: 0 40px 0 0;
   text-decoration: none;
+  min-width: max-content;
 }
 
 .nav-link {
@@ -88,5 +87,32 @@ export default defineComponent({
   display: flex;
   gap: 10px;
   margin: 0 0 0 auto;
+}
+
+.burger-menu {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .navigation-menu {
+    display: none;
+  }
+
+  .the-toolbar {
+    justify-content: space-between;
+  }
+
+  .social-links {
+    margin: 0;
+  }
+
+  .burger-menu {
+    display: revert;
+  }
+
+  .logo {
+    font-size: 20px;
+    margin: 0;
+  }
 }
 </style>
