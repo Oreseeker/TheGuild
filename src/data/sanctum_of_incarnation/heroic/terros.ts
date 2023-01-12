@@ -9,12 +9,15 @@ import terrosImage from '@/assets/bosses/terros2.png';
 export const heroicTerros = {
   name: VaultOfIncaratesBosses.TERROS,
   img: terrosImage,
-  defeated: false,
-  datetime: '2022-12-17T17:36:00.000Z',
-  pugs: {
-    tanks: 1,
-  },
+  defeated: true,
+  datetime: '2023-01-07T16:56:00.000Z',
   participants: [
+    {
+      name: 'Мантагро',
+      class: GameClass.DEATH_KNIGHT,
+      spec: PlayerSpec.BLOOD,
+      role: RaidRole.TANK,
+    },
     {
       name: 'Чарджкиса',
       class: GameClass.WARRIOR,
@@ -28,7 +31,19 @@ export const heroicTerros = {
       role: RaidRole.DPS,
     },
     {
-      name: 'Хедшотик',
+      name: 'Талуэль',
+      class: GameClass.DRUID,
+      spec: PlayerSpec.BALANCE,
+      role: RaidRole.DPS,
+    },
+    {
+      name: 'Флса',
+      class: GameClass.DRUID,
+      spec: PlayerSpec.FERAL,
+      role: RaidRole.DPS,
+    },
+    {
+      name: 'Анкороид',
       class: GameClass.EVOKER,
       spec: PlayerSpec.DEVASTATION,
       role: RaidRole.DPS,
@@ -40,25 +55,13 @@ export const heroicTerros = {
       role: RaidRole.DPS,
     },
     {
-      name: 'Добрыйклыкач',
-      class: GameClass.HUNTER,
-      spec: PlayerSpec.BEAST_MASTER,
+      name: 'Хедшотик',
+      class: GameClass.EVOKER,
+      spec: PlayerSpec.DEVASTATION,
       role: RaidRole.DPS,
     },
     {
       name: 'Кавадор',
-      class: GameClass.HUNTER,
-      spec: PlayerSpec.BEAST_MASTER,
-      role: RaidRole.DPS,
-    },
-    {
-      name: 'Кхуун',
-      class: GameClass.HUNTER,
-      spec: PlayerSpec.BEAST_MASTER,
-      role: RaidRole.DPS,
-    },
-    {
-      name: 'Натянутая',
       class: GameClass.HUNTER,
       spec: PlayerSpec.BEAST_MASTER,
       role: RaidRole.DPS,
@@ -76,7 +79,13 @@ export const heroicTerros = {
       role: RaidRole.DPS,
     },
     {
-      name: 'Амандриель',
+      name: 'Калючечка',
+      class: GameClass.MAGE,
+      spec: PlayerSpec.ARCANE,
+      role: RaidRole.DPS,
+    },
+    {
+      name: 'Фавония',
       class: GameClass.MAGE,
       spec: PlayerSpec.ARCANE,
       role: RaidRole.DPS,
@@ -88,7 +97,13 @@ export const heroicTerros = {
       role: RaidRole.DPS,
     },
     {
-      name: 'Моргиус',
+      name: 'Чиркез',
+      class: GameClass.MONK,
+      spec: PlayerSpec.WINDWALKER,
+      role: RaidRole.DPS,
+    },
+    {
+      name: 'Казимо',
       class: GameClass.PALADIN,
       spec: PlayerSpec.RETRIBUTION,
       role: RaidRole.DPS,
@@ -112,21 +127,15 @@ export const heroicTerros = {
       role: RaidRole.DPS,
     },
     {
-      name: 'Толморен',
-      class: GameClass.SHAMAN,
-      spec: PlayerSpec.ELEMENTAL,
-      role: RaidRole.DPS,
-    },
-    {
       name: 'Блэкфлэймх',
       class: GameClass.WARLOCK,
       spec: PlayerSpec.DEMONOLOGY,
       role: RaidRole.DPS,
     },
     {
-      name: 'Графическая',
-      class: GameClass.WARLOCK,
-      spec: PlayerSpec.DEMONOLOGY,
+      name: 'Эрикбладакс',
+      class: GameClass.WARRIOR,
+      spec: PlayerSpec.FURY,
       role: RaidRole.DPS,
     },
     {
@@ -136,7 +145,7 @@ export const heroicTerros = {
       role: RaidRole.HEALER,
     },
     {
-      name: 'Сефирот',
+      name: 'Яшермамочка',
       class: GameClass.EVOKER,
       spec: PlayerSpec.PRESERVATION,
       role: RaidRole.HEALER,
@@ -148,21 +157,9 @@ export const heroicTerros = {
       role: RaidRole.HEALER,
     },
     {
-      name: 'Маггрубер',
-      class: GameClass.PALADIN,
-      spec: PlayerSpec.HOLY,
-      role: RaidRole.HEALER,
-    },
-    {
       name: 'Мурдра',
       class: GameClass.PRIEST,
       spec: PlayerSpec.DISCIPLINE,
-      role: RaidRole.HEALER,
-    },
-    {
-      name: 'Дримтэйл',
-      class: GameClass.SHAMAN,
-      spec: PlayerSpec.RESOTRATION,
       role: RaidRole.HEALER,
     },
   ],

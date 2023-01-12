@@ -44,7 +44,7 @@ export default defineComponent({
         },
         {
           difficulty: RaidDifficulty.HEROIC,
-          count: 1,
+          count: 4,
         },
         {
           difficulty: RaidDifficulty.MYTHIC,
@@ -71,15 +71,19 @@ export default defineComponent({
   width: 100%;
   height: var(--standard-block-height);
   min-height: var(--standard-block-height);
+  padding: 0 20px;
 }
 
 .title {
+  text-align: center;
   margin: 0 0 50px 0;
 }
 
 .progress {
   display: flex;
+  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 40px;
 }
 </style>
