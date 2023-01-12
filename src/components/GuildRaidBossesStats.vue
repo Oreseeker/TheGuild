@@ -15,12 +15,11 @@
 import { defineComponent, PropType } from 'vue';
 import RaidBossProgress from '@/components/RaidBossProgress.vue';
 import RaidBoss from '@/components/RaidBoss.vue';
-import GuildRaidBossesStatsPopup from '@/components/reusable/GuildRaidBossesStatsPopup.vue';
 import { RaidDifficulty } from '@/enums';
 
 export default defineComponent({
   // eslint-disable-next-line vue/no-unused-components
-  components: { GuildRaidBossesStatsPopup, RaidBoss, RaidBossProgress },
+  components: { RaidBoss, RaidBossProgress },
   props: {
     difficulty: {
       type: String as PropType<RaidDifficulty>,
@@ -53,6 +52,11 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   height: auto;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
 }
 
 .bosses {

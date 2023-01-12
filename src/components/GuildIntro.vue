@@ -44,4 +44,14 @@ h1 {
   font-style: italic;
   font-size: 26px;
 }
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  .description {
+    font-size: 25px;
+  }
+}
 </style>

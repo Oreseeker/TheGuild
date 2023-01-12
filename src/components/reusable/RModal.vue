@@ -33,7 +33,8 @@ export default defineComponent({
 .content {
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .v-enter-from,

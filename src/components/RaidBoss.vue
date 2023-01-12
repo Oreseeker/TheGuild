@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import GuildRaidBossesStatsPopup from '@/components/reusable/GuildRaidBossesStatsPopup.vue';
+import GuildRaidBossesStatsPopup from '@/components/GuildRaidBossesStatsPopup.vue';
 
 export default defineComponent({
   components: { GuildRaidBossesStatsPopup },
