@@ -119,7 +119,7 @@ li {
 }
 
 .toolbar {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 100;
 }
@@ -130,7 +130,7 @@ li {
   align-items: center;
   max-width: 1440px;
   width: 100%;
-  padding: 0 0 80px 0;
+  padding: 101px 0 80px 0;
 }
 
 /*.v-enter-to,*/
