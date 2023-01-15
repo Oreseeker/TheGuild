@@ -26,6 +26,15 @@ export default defineComponent({
       required: true,
     },
   },
+  watch: {
+    modelValue(val: boolean) {
+      if (val) {
+        document.querySelector('html')!.style.overflow = 'hidden';
+        return;
+      }
+      document.querySelector('html')!.style.overflow = '';
+    },
+  },
 });
 </script>
 
