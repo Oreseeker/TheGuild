@@ -66,7 +66,7 @@ export default defineComponent({
   width: 300px;
   flex-direction: column;
   align-items: center;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-family: Russo One, sans-serif;
   user-select: none;
   cursor: pointer;
@@ -100,7 +100,7 @@ export default defineComponent({
 @media screen and (max-width: 768px) {
   .raid-progress {
     width: 200px;
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .counter-wrapper {
@@ -110,6 +110,22 @@ export default defineComponent({
 
   .counter {
     top: 44px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .raid-progress {
+    width: 200px;
+    font-size: 0.8rem;
+  }
+
+  .counter-wrapper {
+    width: 80px;
+    height: 80px;
+  }
+
+  .counter {
+    top: 36px;
   }
 }
 </style>

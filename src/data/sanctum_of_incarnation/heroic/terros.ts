@@ -11,6 +11,7 @@ export const heroicTerros = {
   img: terrosImage,
   defeated: true,
   datetime: '2023-01-07T16:56:00.000Z',
+  warcraftLogsLink: 'https://www.warcraftlogs.com/reports/13CMWr8ADTBPp9dq#fight=11',
   participants: [
     {
       name: 'Мантагро',

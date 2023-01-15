@@ -9,6 +9,7 @@ export const heroicSennarth = {
   img: sennarthImage,
   defeated: true,
   datetime: '2023-01-07T17:20:00.000Z',
+  warcraftLogsLink: 'https://www.warcraftlogs.com/reports/13CMWr8ADTBPp9dq#fight=16',
   participants: [
     {
       name: 'Мантагро',

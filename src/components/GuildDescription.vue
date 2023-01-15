@@ -32,6 +32,6 @@ export default defineComponent({
 }
 
 p {
-  font-size: 18px;
+  font-size: 1.1rem;
 }
 </style>

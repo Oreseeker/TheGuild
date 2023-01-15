@@ -73,6 +73,10 @@ export default defineComponent({
   flex-direction: column;
 }
 
+.vertical .nav-link {
+  text-align: center;
+}
+
 .nav-link {
   display: block;
   text-decoration: none;

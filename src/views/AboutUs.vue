@@ -15,6 +15,7 @@
           :bosses="activeStats.bosses"
           :difficulty="activeStats.difficulty"
           class="raid-stats"
+          ref="raidStats"
         />
       </Transition>
     </div>
@@ -140,6 +141,9 @@ export default defineComponent({
         difficulty,
         bosses: this.vaultOfIncarnatesStats[difficulty].bosses,
       };
+      const raidStatsComponent = this.$refs.raidStats as typeof GuildRaidBossesStats;
+      const raidStatsEl = raidStatsComponent.$el as HTMLElement;
+      raidStatsEl.scrollIntoView();
     },
   },
   created() {
@@ -177,11 +181,16 @@ export default defineComponent({
   display: flex;
 }
 
-.raid-stats:not(:first-child) {
-  margin-left: -100%;
+.raid-stats {
+  position: absolute;
 }
+
+/*.raid-stats:not(:first-child) {*/
+/*  margin-left: -100%;*/
+/*}*/
 
 .description {
   margin: 0 0 40px 0;
 }
 </style>
+F@

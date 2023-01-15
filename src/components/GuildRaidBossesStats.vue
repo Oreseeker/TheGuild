@@ -4,7 +4,7 @@
       <div class="bosses">
         <RaidBoss
           v-for="(boss, index) in bosses"
-          :key="index"
+          :key="`${difficulty}-${index}`"
           :boss="boss"
         />
       </div>
@@ -64,5 +64,11 @@ h1 {
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
 }
 </style>

@@ -2,12 +2,14 @@
   <nav class="the-toolbar">
     <RLink :to="logoLink" class="logo">Зверинец Владыки</RLink>
     <NavigationMenu class="navigation-menu"/>
-    <div class="social-links">
-      <TheFooterButton type="discord"/>
-      <TheFooterButton type="youtube"/>
-      <TheFooterButton type="twitch"/>
-    </div>
-    <BurgerMenu class="burger-menu"/>
+    <SocialLinks class="social-links"/>
+    <MobileMenuToggler
+      class="burger-menu"
+      @click="showMobileMenu = !showMobileMenu"
+    />
+    <MobileMenu
+      v-model="showMobileMenu"
+    />
   </nav>
 </template>
 
@@ -16,15 +18,18 @@ import { defineComponent } from 'vue';
 import RLink from '@/components/reusable/RLink.vue';
 import TheFooterButton from '@/components/TheFooter/TheFooterButton.vue';
 import { RouteName } from '@/enums';
-import BurgerMenu from '@/components/BurgerMenu.vue';
 import NavigationMenu from '@/components/NavigationMenu.vue';
+import MobileMenuToggler from '@/components/MobileMenuToggler.vue';
+import MobileMenu from '@/components/MobileMenu.vue';
+import SocialLinks from '@/components/SocialLinks.vue';
 
 export default defineComponent({
   components: {
+    SocialLinks,
+    MobileMenu,
+    MobileMenuToggler,
     NavigationMenu,
-    BurgerMenu,
     RLink,
-    TheFooterButton,
   },
   data() {
     return {
@@ -42,6 +47,7 @@ export default defineComponent({
           text: 'Вступление',
         },
       ],
+      showMobileMenu: false,
     };
   },
   computed: {
@@ -67,10 +73,10 @@ export default defineComponent({
 }
 
 .logo {
-  font-size: 25px;
+  font-size: 1.5rem;
   margin: 0 40px 0 0;
   text-decoration: none;
-  min-width: max-content;
+  /*min-width: max-content;*/
 }
 
 .nav-link {
@@ -83,14 +89,12 @@ export default defineComponent({
   color: #bebebe;
 }
 
-.social-links {
-  display: flex;
-  gap: 10px;
-  margin: 0 0 0 auto;
-}
-
 .burger-menu {
   display: none;
+}
+
+.social-links {
+  margin: 0 0 0 auto;
 }
 
 @media screen and (max-width: 1024px) {
@@ -103,15 +107,15 @@ export default defineComponent({
   }
 
   .social-links {
-    margin: 0;
+    display: none;
   }
 
   .burger-menu {
-    display: revert;
+    display: flex;
   }
 
   .logo {
-    font-size: 20px;
+    font-size: 1.25rem;
     margin: 0;
   }
 }

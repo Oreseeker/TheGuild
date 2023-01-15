@@ -86,4 +86,10 @@ export default defineComponent({
   flex-wrap: wrap;
   gap: 40px;
 }
+
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 1.5rem;
+  }
+}
 </style>

@@ -29,12 +29,13 @@ export default defineComponent({
 }
 
 h1 {
-  font-size: 70px;
+  font-size: 4.4rem;
+  text-align: center;
   margin: 0 0 20px 0;
 }
 
 .description {
-  font-size: 40px;
+  font-size: 2.5rem;
   display: flex;
   gap: 20px;
   margin: 0 0 30px 0;
@@ -42,16 +43,26 @@ h1 {
 
 .quote {
   font-style: italic;
-  font-size: 26px;
+  font-size: 1.6rem;
 }
 
 @media screen and (max-width: 768px) {
   h1 {
-    font-size: 40px;
+    font-size: 2.5rem;
   }
 
   .description {
-    font-size: 25px;
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
   }
 }
 </style>

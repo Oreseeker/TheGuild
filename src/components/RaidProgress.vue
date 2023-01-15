@@ -62,7 +62,7 @@ export default defineComponent({
   width: fit-content;
   flex-direction: column;
   align-items: center;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-family: Russo One, sans-serif;
 }
 

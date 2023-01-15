@@ -41,7 +41,7 @@ export default defineComponent({
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .number-of-role-participants {

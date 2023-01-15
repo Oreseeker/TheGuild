@@ -37,7 +37,7 @@ export default defineComponent({
 }
 
 .title {
-  font-size: 25px;
+  font-size: 1.5rem;
   position: absolute;
   left: var(--padding);
 }

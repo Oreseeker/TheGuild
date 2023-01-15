@@ -255,6 +255,13 @@ export default defineComponent({
     width: 100%;
     height: 100vh;
     max-height: initial;
+    padding: 0 0 20px 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .top {
+    padding: 20px;
   }
 }
 </style>

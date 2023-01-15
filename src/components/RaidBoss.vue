@@ -55,7 +55,7 @@ img {
 }
 
 figcaption {
-  font-size: 30px;
+  font-size: 1.9rem;
 }
 
 .not-defeated {
@@ -66,5 +66,16 @@ figcaption {
 img {
   width: 380px;
   height: 200px;
+}
+
+@media screen and (max-width: 600px) {
+  img {
+    width: 280px;
+    height: 147px;
+  }
+
+  figcaption {
+    font-size: 1.6rem;
+  }
 }
 </style>

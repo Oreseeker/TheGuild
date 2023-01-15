@@ -51,6 +51,7 @@ export default defineComponent({
 <style scoped>
 .guild-rules {
   max-width: var(--text-page-content-max-width);
+  padding: 0 40px;
 }
 
 li {

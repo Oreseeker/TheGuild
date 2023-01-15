@@ -37,10 +37,12 @@ export default defineComponent({
 <style scoped>
 .join-guild {
   max-width: var(--text-page-content-max-width);
+  padding: 0 40px;
 }
 
 ul {
   margin: 20px 0 0 0;
+  padding: revert;
 }
 
 li {

@@ -39,6 +39,12 @@ export default defineComponent({
   color: white;
 }
 
+html {
+  overflow-x: hidden;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -90,7 +96,7 @@ button,
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 2.5rem;
 }
 
 ul {
