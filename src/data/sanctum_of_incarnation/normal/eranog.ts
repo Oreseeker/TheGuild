@@ -14,7 +14,7 @@ export const normalEranog = {
   datetime: '2022-12-17T16:14:00.000Z',
   warcraftLogsLink: 'https://www.warcraftlogs.com/reports/kQMKzCj39byhXN8c#fight=4',
   pugs: {
-    tanks: 1,
+    dps: 1,
   },
   participants: [
     {
