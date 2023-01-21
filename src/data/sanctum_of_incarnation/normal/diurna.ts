@@ -98,7 +98,7 @@ export const normalDiurna = {
       role: RaidRole.DPS,
     },
     {
-      name: 'Визериз',
+      name: 'Визэриз',
       class: GameClass.MONK,
       spec: PlayerSpec.WINDWALKER,
       role: RaidRole.DPS,
