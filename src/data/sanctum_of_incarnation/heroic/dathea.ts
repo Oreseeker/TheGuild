@@ -127,7 +127,7 @@ export const heroicDathea = {
     {
       name: 'Мурдра',
       class: GameClass.PRIEST,
-      spec: PlayerSpec.DISCIPLINE,
+      spec: PlayerSpec.HOLY,
       role: RaidRole.HEALER,
     },
   ],
