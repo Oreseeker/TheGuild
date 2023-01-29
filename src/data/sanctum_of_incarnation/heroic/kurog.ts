@@ -8,7 +8,7 @@ export const heroicKurog = {
   name: VaultOfIncaratesBosses.KUROG,
   img: kurogImage,
   defeated: true,
-  datetime: '2022-01-21T20:07:00.000Z',
+  datetime: '2022-01-21T17:07:00.000Z',
   warcraftLogsLink: 'https://www.warcraftlogs.com/reports/p6Zd2N1kXghaBQYq#fight=20',
   pugs: {
     tanks: 1,

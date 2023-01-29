@@ -10,7 +10,7 @@ export const heroicDiurna = {
   name: VaultOfIncaratesBosses.DIURNA,
   img: diurnaImage,
   defeated: true,
-  datetime: '2022-01-22T20:06:00.000Z',
+  datetime: '2022-01-22T17:06:00.000Z',
   warcraftLogsLink: 'https://www.warcraftlogs.com/reports/QfjpCG7LVPbnqXDz#fight=13',
   participants: [
     {
