@@ -43,6 +43,7 @@ html {
   overflow-x: hidden;
   font-size: 16px;
   scroll-behavior: smooth;
+  scroll-padding-top: 70px;
 }
 
 body {
