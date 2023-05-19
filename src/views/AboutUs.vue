@@ -179,15 +179,17 @@ export default defineComponent({
   position: relative;
   width: 100%;
   display: flex;
+  overflow: hidden;
 }
 
 .raid-stats {
-  position: absolute;
+  /*position: absolute;*/
+  min-width: 100%;
 }
 
-/*.raid-stats:not(:first-child) {*/
-/*  margin-left: -100%;*/
-/*}*/
+.raid-stats:not(:first-child) {
+  transform: translate(-100%);
+}
 
 .description {
   margin: 0 0 40px 0;
