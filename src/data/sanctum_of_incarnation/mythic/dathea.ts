@@ -1,15 +1,8 @@
-import {
-  VaultOfIncaratesBosses,
-} from '@/enums';
-import datheaImage from '@/assets/bosses/vault_of_incarnates/dathea2.png';
+import { Encounter } from '@/types/encounters';
+import { dathea } from '@/data/sanctum_of_incarnation/bosses/dathea';
 
-export const mythicDathea = {
-  name: VaultOfIncaratesBosses.DATHEA,
-  img: datheaImage,
+export const mythicDathea: Encounter = {
+  name: dathea.name,
+  img: dathea.image,
   defeated: false,
-  datetime: '2022-12-18T18:53:00.000Z',
-  pugs: {
-    tanks: 1,
-  },
-  participants: [],
 };

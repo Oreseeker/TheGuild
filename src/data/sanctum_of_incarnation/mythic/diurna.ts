@@ -1,12 +1,8 @@
-import {
-  VaultOfIncaratesBosses,
-} from '@/enums';
-import diurnaImage from '@/assets/bosses/vault_of_incarnates/diurna2.png';
+import { Encounter } from '@/types/encounters';
+import { diurna } from '@/data/sanctum_of_incarnation/bosses/diurna';
 
-export const mythicDiurna = {
-  name: VaultOfIncaratesBosses.DIURNA,
-  img: diurnaImage,
+export const mythicDiurna: Encounter = {
+  name: diurna.name,
+  img: diurna.image,
   defeated: false,
-  datetime: '2022-12-25T16:46:00.000Z',
-  participants: [],
 };

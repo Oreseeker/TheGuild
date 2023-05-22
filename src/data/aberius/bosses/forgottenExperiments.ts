@@ -1,4 +1,4 @@
-import forgottenExperimentsImage from '@/assets/bosses/aberius/forgotten_experiments.jpg';
+import forgottenExperimentsImage from '@/assets/bosses/aberius/forgotten_experiments.webp';
 import { BossInfo } from '@/types/bosses';
 
 export const forgottenExperiments: BossInfo = {

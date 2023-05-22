@@ -2,13 +2,13 @@ import {
   GameClass,
   PlayerSpec,
   RaidRole,
-  VaultOfIncaratesBosses,
 } from '@/enums';
-import sennarthImage from '@/assets/bosses/vault_of_incarnates/sennarth2.png';
+import { sennarth } from '@/data/sanctum_of_incarnation/bosses/sennarth';
+import { Encounter } from '@/types/encounters';
 
-export const normalSennarth = {
-  name: VaultOfIncaratesBosses.SENNARTH,
-  img: sennarthImage,
+export const normalSennarth: Encounter = {
+  name: sennarth.name,
+  img: sennarth.image,
   defeated: true,
   datetime: '2022-12-18T17:02:00.000Z',
   warcraftLogsLink: 'https://www.warcraftlogs.com/reports/v9zBCmAVqtZDhf4g#fight=11',

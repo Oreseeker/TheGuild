@@ -2,13 +2,13 @@ import {
   GameClass,
   PlayerSpec,
   RaidRole,
-  VaultOfIncaratesBosses,
 } from '@/enums';
-import terrosImage from '@/assets/bosses/vault_of_incarnates/terros2.png';
+import { Encounter } from '@/types/encounters';
+import { terros } from '@/data/sanctum_of_incarnation/bosses/terros';
 
-export const heroicTerros = {
-  name: VaultOfIncaratesBosses.TERROS,
-  img: terrosImage,
+export const heroicTerros: Encounter = {
+  name: terros.name,
+  img: terros.image,
   defeated: true,
   datetime: '2023-01-07T16:56:00.000Z',
   warcraftLogsLink: 'https://www.warcraftlogs.com/reports/13CMWr8ADTBPp9dq#fight=11',

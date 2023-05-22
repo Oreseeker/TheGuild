@@ -2,14 +2,14 @@ import {
   GameClass,
   PlayerSpec,
   RaidRole,
-  VaultOfIncaratesBosses,
 } from '@/enums';
 
-import eranogImage from '@/assets/bosses/vault_of_incarnates/eranog2.png';
+import { Encounter } from '@/types/encounters';
+import { eranog } from '@/data/sanctum_of_incarnation/bosses/eranog';
 
-export const normalEranog = {
-  name: VaultOfIncaratesBosses.ERANOG,
-  img: eranogImage,
+export const normalEranog: Encounter = {
+  name: eranog.name,
+  img: eranog.image,
   defeated: true,
   datetime: '2022-12-17T16:14:00.000Z',
   warcraftLogsLink: 'https://www.warcraftlogs.com/reports/kQMKzCj39byhXN8c#fight=4',

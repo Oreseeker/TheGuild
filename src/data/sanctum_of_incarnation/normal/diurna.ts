@@ -2,13 +2,13 @@ import {
   GameClass,
   PlayerSpec,
   RaidRole,
-  VaultOfIncaratesBosses,
 } from '@/enums';
-import diurnaImage from '@/assets/bosses/vault_of_incarnates/diurna2.png';
+import { diurna } from '@/data/sanctum_of_incarnation/bosses/diurna';
+import { Encounter } from '@/types/encounters';
 
-export const normalDiurna = {
-  name: VaultOfIncaratesBosses.DIURNA,
-  img: diurnaImage,
+export const normalDiurna: Encounter = {
+  name: diurna.name,
+  img: diurna.image,
   defeated: true,
   datetime: '2022-12-25T16:46:00.000Z',
   warcraftLogsLink: 'https://www.warcraftlogs.com/reports/DTkn1yf8La2GwJK6#fight=6',

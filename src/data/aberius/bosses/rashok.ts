@@ -1,4 +1,4 @@
-import rashokImage from '@/assets/bosses/aberius/rashok.jpg';
+import rashokImage from '@/assets/bosses/aberius/rashok.webp';
 import { BossInfo } from '@/types/bosses';
 
 export const rashok: BossInfo = {

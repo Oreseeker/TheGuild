@@ -1,12 +1,8 @@
-import {
-  VaultOfIncaratesBosses,
-} from '@/enums';
-import raszagethImage from '@/assets/bosses/vault_of_incarnates/raszageth2.png';
+import { Encounter } from '@/types/encounters';
+import { raszageth } from '@/data/sanctum_of_incarnation/bosses/raszageth';
 
-export const heroicRaszageth = {
-  name: VaultOfIncaratesBosses.RASZAGETH,
-  img: raszagethImage,
+export const heroicRaszageth: Encounter = {
+  name: raszageth.name,
+  img: raszageth.image,
   defeated: false,
-  datetime: '2022-01-03T18:14:00.000Z',
-  participants: [],
 };

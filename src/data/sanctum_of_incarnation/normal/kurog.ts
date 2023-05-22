@@ -2,13 +2,13 @@ import {
   GameClass,
   PlayerSpec,
   RaidRole,
-  VaultOfIncaratesBosses,
 } from '@/enums';
-import kurogImage from '@/assets/bosses/vault_of_incarnates/kurog2.png';
+import { Encounter } from '@/types/encounters';
+import { kurog } from '@/data/sanctum_of_incarnation/bosses/kurog';
 
-export const normalKurog = {
-  name: VaultOfIncaratesBosses.KUROG,
-  img: kurogImage,
+export const normalKurog: Encounter = {
+  name: kurog.name,
+  img: kurog.image,
   defeated: true,
   datetime: '2022-12-24T18:48:00.000Z',
   warcraftLogsLink: 'https://www.warcraftlogs.com/reports/m8h7ynkP9fKjZtBr#fight=last',

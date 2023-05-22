@@ -2,13 +2,13 @@ import {
   GameClass,
   PlayerSpec,
   RaidRole,
-  VaultOfIncaratesBosses,
 } from '@/enums';
-import primalCouncilImage from '@/assets/bosses/vault_of_incarnates/council2.png';
+import { Encounter } from '@/types/encounters';
+import { council } from '@/data/sanctum_of_incarnation/bosses/council';
 
-export const normalPrimalCouncil = {
-  name: VaultOfIncaratesBosses.PRIMAL_COUNCIL,
-  img: primalCouncilImage,
+export const normalPrimalCouncil: Encounter = {
+  name: council.name,
+  img: council.image,
   defeated: true,
   datetime: '2022-12-17T18:18:00.000Z',
   warcraftLogsLink: 'https://www.warcraftlogs.com/reports/kQMKzCj39byhXN8c#fight=33',

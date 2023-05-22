@@ -2,13 +2,13 @@ import {
   GameClass,
   PlayerSpec,
   RaidRole,
-  VaultOfIncaratesBosses,
 } from '@/enums';
-import raszagethImage from '@/assets/bosses/vault_of_incarnates/raszageth2.png';
+import { raszageth } from '@/data/sanctum_of_incarnation/bosses/raszageth';
+import { Encounter } from '@/types/encounters';
 
-export const normalRaszageth = {
-  name: VaultOfIncaratesBosses.RASZAGETH,
-  img: raszagethImage,
+export const normalRaszageth: Encounter = {
+  name: raszageth.name,
+  img: raszageth.image,
   defeated: true,
   datetime: '2022-01-03T18:14:00.000Z',
   warcraftLogsLink: 'https://www.warcraftlogs.com/reports/B6y8VZvbcY2fTJW7#fight=14',

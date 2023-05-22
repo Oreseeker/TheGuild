@@ -1,4 +1,4 @@
-import zaqaliImage from '@/assets/bosses/aberius/zaqali.jpg';
+import zaqaliImage from '@/assets/bosses/aberius/zaqali.webp';
 import { BossInfo } from '@/types/bosses';
 
 export const assaultOfZaqali: BossInfo = {

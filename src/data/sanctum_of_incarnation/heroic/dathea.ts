@@ -2,13 +2,13 @@ import {
   GameClass,
   PlayerSpec,
   RaidRole,
-  VaultOfIncaratesBosses,
 } from '@/enums';
-import datheaImage from '@/assets/bosses/vault_of_incarnates/dathea2.png';
+import { dathea } from '@/data/sanctum_of_incarnation/bosses/dathea';
+import { Encounter } from '@/types/encounters';
 
-export const heroicDathea = {
-  name: VaultOfIncaratesBosses.DATHEA,
-  img: datheaImage,
+export const heroicDathea: Encounter = {
+  name: dathea.name,
+  img: dathea.image,
   defeated: true,
   datetime: '2022-01-15T20:41:00.000Z',
   warcraftLogsLink: 'https://www.warcraftlogs.com/reports/AFvc4kXdhznNMVyr#fight=12',
