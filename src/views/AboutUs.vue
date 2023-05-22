@@ -108,8 +108,8 @@ import { mythicMagmorax } from '@/data/aberius/mythic/magmorax';
 import { mythicNeltharion } from '@/data/aberius/mythic/neltharion';
 import { mythicSarkareth } from '@/data/aberius/mythic/sarkareth';
 
-import vaultBackgroundImage from '@/assets/incarnation.jpg';
-import aberrusBackgroundImage from '@/assets/aberrus.jpg';
+import vaultBackgroundImage from '@/assets/incarnation.webp';
+import aberrusBackgroundImage from '@/assets/aberrus.webp';
 
 type Bosses = any[];
 

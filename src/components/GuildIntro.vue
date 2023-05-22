@@ -20,7 +20,7 @@ export default defineComponent({
 <style scoped>
 .guild-intro {
   width: 100%;
-  background: url('@/assets/nathria2.png') no-repeat center;
+  background: url('@/assets/nathria2.webp') no-repeat center;
   background-size: cover;
   display: flex;
   flex-direction: column;
