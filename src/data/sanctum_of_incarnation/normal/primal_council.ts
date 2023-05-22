@@ -4,7 +4,7 @@ import {
   RaidRole,
   VaultOfIncaratesBosses,
 } from '@/enums';
-import primalCouncilImage from '@/assets/bosses/council2.png';
+import primalCouncilImage from '@/assets/bosses/vault_of_incarnates/council2.png';
 
 export const normalPrimalCouncil = {
   name: VaultOfIncaratesBosses.PRIMAL_COUNCIL,

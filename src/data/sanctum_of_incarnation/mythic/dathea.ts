@@ -1,7 +1,7 @@
 import {
   VaultOfIncaratesBosses,
 } from '@/enums';
-import datheaImage from '@/assets/bosses/dathea2.png';
+import datheaImage from '@/assets/bosses/vault_of_incarnates/dathea2.png';
 
 export const mythicDathea = {
   name: VaultOfIncaratesBosses.DATHEA,

@@ -5,17 +5,40 @@
     <GuildRaidBriefStats
       title="Наш прогресс в хранилище воплощений"
       :number-of-raid-bosses="8"
-      @click:raid="onRaidDifficultyClick"
+      @click:raid="onVaultRaidDifficultyChange"
+      frame-color="red"
+      :background-image="vaultBackgroundImage"
+      :raid-progress-items="vaultOfIncarnatesShortStats"
     />
     <div class="block">
       <Transition>
         <GuildRaidBossesStats
-          v-if="activeStats"
-          :key="activeStats.difficulty"
-          :bosses="activeStats.bosses"
-          :difficulty="activeStats.difficulty"
+          v-if="vaultActiveStats"
+          :key="vaultActiveStats.difficulty"
+          :bosses="vaultActiveStats.bosses"
+          :difficulty="vaultActiveStats.difficulty"
           class="raid-stats"
-          ref="raidStats"
+          ref="vaultRaidStats"
+        />
+      </Transition>
+    </div>
+    <GuildRaidBriefStats
+      title="Наш прогресс в Аберрии"
+      :number-of-raid-bosses="9"
+      @click:raid="onAberiusRaidDifficultyChange"
+      frame-color="blue"
+      :background-image="aberrusBackgroundImage"
+      :raid-progress-items="aberrusShortStats"
+    />
+    <div class="block">
+      <Transition>
+        <GuildRaidBossesStats
+          v-if="aberiusActiveStats"
+          :key="aberiusActiveStats.difficulty"
+          :bosses="aberiusActiveStats.bosses"
+          :difficulty="aberiusActiveStats.difficulty"
+          class="raid-stats"
+          ref="aberrusRaidStats"
         />
       </Transition>
     </div>
@@ -57,6 +80,36 @@ import { mythicDiurna } from '@/data/sanctum_of_incarnation/mythic/diurna';
 import { mythicRaszageth } from '@/data/sanctum_of_incarnation/mythic/raszageth';
 
 import { RaidDifficulty } from '@/enums';
+import { normalAmalgamationChamber } from '@/data/aberius/normal/amalgamation_chamber';
+import { normalKazzara } from '@/data/aberius/normal/kazzara';
+import { normalZaqali } from '@/data/aberius/normal/zaqali';
+import { normalSarkareth } from '@/data/aberius/normal/sarkareth';
+import { normalNeltharion } from '@/data/aberius/normal/neltharion';
+import { normalMagmorax } from '@/data/aberius/normal/magmorax';
+import { normalZskarn } from '@/data/aberius/normal/zskarn';
+import { normalRashok } from '@/data/aberius/normal/rashok';
+import { normalForgottenExperiments } from '@/data/aberius/normal/forgotten_experiments';
+import { heroicSarkareth } from '@/data/aberius/heroic/sarkareth';
+import { heroicNeltharion } from '@/data/aberius/heroic/neltharion';
+import { heroicMagmorax } from '@/data/aberius/heroic/magmorax';
+import { heroicZskarn } from '@/data/aberius/heroic/zskarn';
+import { heroicRashok } from '@/data/aberius/heroic/rashok';
+import { heroicZaqali } from '@/data/aberius/heroic/zaqali';
+import { heroicForgottenExperiments } from '@/data/aberius/heroic/forgotten_experiments';
+import { heroicAmalgamationChamber } from '@/data/aberius/heroic/amalgamation_chamber';
+import { heroicKazzara } from '@/data/aberius/heroic/kazzara';
+import { mythicKazzara } from '@/data/aberius/mythic/kazzara';
+import { mythicAmalgamationChamber } from '@/data/aberius/mythic/amalgamation_chamber';
+import { mythicForgottenExperiments } from '@/data/aberius/mythic/forgotten_experiments';
+import { mythicZaqali } from '@/data/aberius/mythic/zaqali';
+import { mythicRashok } from '@/data/aberius/mythic/rashok';
+import { mythicZskarn } from '@/data/aberius/mythic/zskarn';
+import { mythicMagmorax } from '@/data/aberius/mythic/magmorax';
+import { mythicNeltharion } from '@/data/aberius/mythic/neltharion';
+import { mythicSarkareth } from '@/data/aberius/mythic/sarkareth';
+
+import vaultBackgroundImage from '@/assets/incarnation.jpg';
+import aberrusBackgroundImage from '@/assets/aberrus.jpg';
 
 type Bosses = any[];
 
@@ -64,7 +117,7 @@ type Raid = {
   bosses: Bosses;
 }
 
-type VaultOfIncarnatesStats = Record<RaidDifficulty, Raid>
+type RaidStats = Record<RaidDifficulty, Raid>
 
 type ActiveStats = {
   difficulty: RaidDifficulty;
@@ -79,7 +132,7 @@ export default defineComponent({
     GuildDescription,
   },
   data() {
-    const vaultOfIncarnatesStats: VaultOfIncarnatesStats = {
+    const vaultOfIncarnatesStats: RaidStats = {
       [RaidDifficulty.NORMAL]: {
         bosses: [
           normalEranog,
@@ -118,30 +171,128 @@ export default defineComponent({
       },
     };
 
-    const activeStats: ActiveStats = null;
+    const aberiusStats: RaidStats = {
+      [RaidDifficulty.NORMAL]: {
+        bosses: [
+          normalKazzara,
+          normalAmalgamationChamber,
+          normalForgottenExperiments,
+          normalZaqali,
+          normalRashok,
+          normalZskarn,
+          normalMagmorax,
+          normalNeltharion,
+          normalSarkareth,
+        ],
+      },
+      [RaidDifficulty.HEROIC]: {
+        bosses: [
+          heroicKazzara,
+          heroicAmalgamationChamber,
+          heroicForgottenExperiments,
+          heroicZaqali,
+          heroicRashok,
+          heroicZskarn,
+          heroicMagmorax,
+          heroicNeltharion,
+          heroicSarkareth,
+        ],
+      },
+      [RaidDifficulty.MYTHIC]: {
+        bosses: [
+          mythicKazzara,
+          mythicAmalgamationChamber,
+          mythicForgottenExperiments,
+          mythicZaqali,
+          mythicRashok,
+          mythicZskarn,
+          mythicMagmorax,
+          mythicNeltharion,
+          mythicSarkareth,
+        ],
+      },
+    };
+
+    const vaultActiveStats: ActiveStats | null = null;
+    const aberiusActiveStats: ActiveStats | null = null;
+
+    const vaultOfIncarnatesShortStats = [
+      {
+        difficulty: RaidDifficulty.NORMAL,
+        count: 8,
+      },
+      {
+        difficulty: RaidDifficulty.HEROIC,
+        count: 7,
+      },
+      {
+        difficulty: RaidDifficulty.MYTHIC,
+        count: 1,
+      },
+    ];
+
+    const aberrusShortStats = [
+      {
+        difficulty: RaidDifficulty.NORMAL,
+        count: 8,
+      },
+      {
+        difficulty: RaidDifficulty.HEROIC,
+        count: 1,
+      },
+      {
+        difficulty: RaidDifficulty.MYTHIC,
+        count: 0,
+      },
+    ];
 
     return {
-      activeStats,
+      vaultActiveStats,
       vaultOfIncarnatesStats,
+      aberiusActiveStats,
+      aberiusStats,
+      vaultBackgroundImage,
+      aberrusBackgroundImage,
+      vaultOfIncarnatesShortStats,
+      aberrusShortStats,
     };
   },
   methods: {
     setActiveStats() {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      this.activeStats = {
+      this.vaultActiveStats = {
         difficulty: RaidDifficulty.NORMAL,
         bosses: this.vaultOfIncarnatesStats.normal.bosses,
       };
-    },
-    onRaidDifficultyClick(difficulty: RaidDifficulty) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      this.activeStats = {
+      this.aberiusActiveStats = {
+        difficulty: RaidDifficulty.NORMAL,
+        bosses: this.aberiusStats.normal.bosses,
+      };
+    },
+    onVaultRaidDifficultyChange(difficulty: RaidDifficulty) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      this.vaultActiveStats = {
         difficulty,
         bosses: this.vaultOfIncarnatesStats[difficulty].bosses,
       };
-      const raidStatsComponent = this.$refs.raidStats as typeof GuildRaidBossesStats;
+      const raidStatsComponent = this.$refs.vaultRaidStats as typeof GuildRaidBossesStats;
+      const raidStatsEl = raidStatsComponent.$el as HTMLElement;
+      raidStatsEl.scrollIntoView();
+    },
+    onAberiusRaidDifficultyChange(difficulty: RaidDifficulty) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      this.aberiusActiveStats = {
+        difficulty,
+        bosses: this.aberiusStats[difficulty].bosses,
+      };
+
+      console.log('this.aberiusActiveStats', this.aberiusActiveStats);
+      const raidStatsComponent = this.$refs.aberrusRaidStats as typeof GuildRaidBossesStats;
       const raidStatsEl = raidStatsComponent.$el as HTMLElement;
       raidStatsEl.scrollIntoView();
     },
@@ -183,7 +334,6 @@ export default defineComponent({
 }
 
 .raid-stats {
-  /*position: absolute;*/
   min-width: 100%;
 }
 
@@ -195,4 +345,3 @@ export default defineComponent({
   margin: 0 0 40px 0;
 }
 </style>
-F@

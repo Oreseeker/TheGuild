@@ -5,7 +5,7 @@
   >
     <figure @click="showBossFightPopup = true">
       <img :src="boss.img" :alt="boss.name">
-      <figcaption>
+      <figcaption class="figcaption">
         {{ boss.name }}
       </figcaption>
     </figure>
@@ -40,6 +40,7 @@ export default defineComponent({
 .raid-boss {
   user-select: none;
   cursor: pointer;
+  max-width: 380px;
 }
 
 figure {
@@ -48,6 +49,10 @@ figure {
   align-items: center;
   gap: 10px;
   margin: 0;
+}
+
+.figcaption {
+  text-align: center;
 }
 
 img {

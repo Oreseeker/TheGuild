@@ -4,7 +4,7 @@ import {
   RaidRole,
   VaultOfIncaratesBosses,
 } from '@/enums';
-import sennarthImage from '@/assets/bosses/sennarth2.png';
+import sennarthImage from '@/assets/bosses/vault_of_incarnates/sennarth2.png';
 
 export const normalSennarth = {
   name: VaultOfIncaratesBosses.SENNARTH,

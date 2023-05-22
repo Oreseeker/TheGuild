@@ -4,7 +4,7 @@ import {
   RaidRole,
   VaultOfIncaratesBosses,
 } from '@/enums';
-import kurogImage from '@/assets/bosses/kurog2.png';
+import kurogImage from '@/assets/bosses/vault_of_incarnates/kurog2.png';
 
 export const normalKurog = {
   name: VaultOfIncaratesBosses.KUROG,

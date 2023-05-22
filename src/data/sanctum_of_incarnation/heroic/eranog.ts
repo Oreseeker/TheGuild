@@ -3,7 +3,7 @@ import {
   VaultOfIncaratesBosses,
 } from '@/enums';
 
-import eranogImage from '@/assets/bosses/eranog2.png';
+import eranogImage from '@/assets/bosses/vault_of_incarnates/eranog2.png';
 
 export const heroicEranog = {
   name: VaultOfIncaratesBosses.ERANOG,

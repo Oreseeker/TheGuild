@@ -2,7 +2,7 @@ import {
   GameClass, PlayerSpec, RaidRole,
   VaultOfIncaratesBosses,
 } from '@/enums';
-import primalCouncilImage from '@/assets/bosses/council2.png';
+import primalCouncilImage from '@/assets/bosses/vault_of_incarnates/council2.png';
 
 export const heroicPrimalCouncil = {
   name: VaultOfIncaratesBosses.PRIMAL_COUNCIL,

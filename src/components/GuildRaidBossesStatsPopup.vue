@@ -197,6 +197,7 @@ export default defineComponent({
 }
 
 .title {
+  text-align: center;
   margin: 0 0 20px 0;
 }
 

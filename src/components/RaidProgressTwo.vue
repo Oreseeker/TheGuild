@@ -15,6 +15,9 @@
 import { defineComponent, PropType } from 'vue';
 import { RaidDifficulty } from '@/enums';
 
+import blueFrame from '@/assets/blue_frame.svg';
+import redFrame from '@/assets/laurel_wreath.svg';
+
 export default defineComponent({
   props: {
     difficulty: {
@@ -32,9 +35,25 @@ export default defineComponent({
       type: Number,
       required: true,
     },
+    frameColor: {
+      type: String as PropType<'red' | 'blue'>,
+      required: true,
+    },
   },
   data() {
     return {
+      frames: {
+        red: {
+          image: redFrame,
+          size: '136%',
+          verticalShift: 'center',
+        },
+        blue: {
+          image: blueFrame,
+          size: '96%',
+          verticalShift: '-6px',
+        },
+      },
       difficulties: {
         normal: {
           label: 'Обычный',
@@ -51,6 +70,9 @@ export default defineComponent({
   computed: {
     label() {
       return this.difficulties[this.difficulty].label.toUpperCase();
+    },
+    frame() {
+      return this.frames[this.frameColor];
     },
   },
 });
@@ -81,8 +103,11 @@ export default defineComponent({
   width: 140px;
   height: 140px;
   position: relative;
-  background: url('@/assets/laurel_wreath.svg') no-repeat center;
-  background-size: 136%;
+  /*background: url('@/assets/laurel_wreath.svg') no-repeat center;*/
+  background-image: v-bind(`url('${frame.image}')`);
+  background-repeat: no-repeat;
+  background-position: center v-bind(frame.verticalShift);
+  background-size: v-bind(frame.size);
   margin: 0 0 10px 0;
 }
 

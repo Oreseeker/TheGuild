@@ -4,7 +4,7 @@ import {
   RaidRole,
   VaultOfIncaratesBosses,
 } from '@/enums';
-import datheaImage from '@/assets/bosses/dathea2.png';
+import datheaImage from '@/assets/bosses/vault_of_incarnates/dathea2.png';
 
 export const heroicDathea = {
   name: VaultOfIncaratesBosses.DATHEA,

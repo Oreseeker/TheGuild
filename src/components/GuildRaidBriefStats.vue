@@ -9,6 +9,7 @@
         :count="item.count"
         :max-count="numberOfRaidBosses"
         @click="$emit('click:raid', item.difficulty)"
+        v-bind="$attrs"
       />
     </div>
   </div>
@@ -34,24 +35,14 @@ export default defineComponent({
       type: Number,
       required: true,
     },
-  },
-  data() {
-    return {
-      raidProgressItems: [
-        {
-          difficulty: RaidDifficulty.NORMAL,
-          count: 8,
-        },
-        {
-          difficulty: RaidDifficulty.HEROIC,
-          count: 7,
-        },
-        {
-          difficulty: RaidDifficulty.MYTHIC,
-          count: 1,
-        },
-      ],
-    };
+    backgroundImage: {
+      type: String,
+      required: true,
+    },
+    raidProgressItems: {
+      type: Array,
+      required: true,
+    },
   },
 });
 </script>
@@ -65,7 +56,7 @@ export default defineComponent({
   --opacity: 0.25;
   background: linear-gradient(90deg, rgba(0,0,0, var(--opacity)) 0%,
   rgba(0,0,0, var(--opacity)) 100%),
-  url(@/assets/incarnation.jpg) no-repeat center;
+  v-bind(`url('${backgroundImage}')`) no-repeat center;
   background-size: cover;
   max-width: 1440px;
   width: 100%;

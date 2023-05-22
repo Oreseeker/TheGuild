@@ -4,7 +4,7 @@ import {
   RaidRole,
   VaultOfIncaratesBosses,
 } from '@/enums';
-import terrosImage from '@/assets/bosses/terros2.png';
+import terrosImage from '@/assets/bosses/vault_of_incarnates/terros2.png';
 
 export const heroicTerros = {
   name: VaultOfIncaratesBosses.TERROS,
