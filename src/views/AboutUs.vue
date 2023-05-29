@@ -234,7 +234,7 @@ export default defineComponent({
     const aberrusShortStats = [
       {
         difficulty: RaidDifficulty.NORMAL,
-        count: 8,
+        count: 9,
       },
       {
         difficulty: RaidDifficulty.HEROIC,
