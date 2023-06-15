@@ -1,26 +1,30 @@
 import { GameClass, PlayerSpec, RaidRole } from '@/enums';
 import { zskarn } from '@/data/aberius/bosses/zskarn';
+import { Encounter } from '@/types/encounters';
 
-export const heroicZskarn = {
+export const heroicZskarn: Encounter = {
   name: zskarn.name,
   img: zskarn.image,
-  defeated: false,
-  datetime: '2022-12-18T18:53:00.000Z',
-  warcraftLogsLink: 'https://www.warcraftlogs.com/reports/v9zBCmAVqtZDhf4g#fight=last',
-  pugs: {
-    tanks: 1,
-  },
+  defeated: true,
+  datetime: '2023-06-11T17:26:00.000Z',
+  warcraftLogsLink: 'https://www.warcraftlogs.com/reports/QbAwPag3GvVWtBRX#fight=20',
   participants: [
     {
-      name: 'Чарджкиса',
+      name: 'Диклонот',
+      class: GameClass.PALADIN,
+      spec: PlayerSpec.PROTECTION,
+      role: RaidRole.TANK,
+    },
+    {
+      name: 'Хельгаль',
       class: GameClass.WARRIOR,
       spec: PlayerSpec.PROTECTION,
       role: RaidRole.TANK,
     },
     {
-      name: 'Илаз',
-      class: GameClass.DEMON_HUNTER,
-      spec: PlayerSpec.HAVOC,
+      name: 'Горгонзол',
+      class: GameClass.EVOKER,
+      spec: PlayerSpec.DEVASTATION,
       role: RaidRole.DPS,
     },
     {
@@ -30,15 +34,9 @@ export const heroicZskarn = {
       role: RaidRole.DPS,
     },
     {
-      name: 'Хедшотик',
-      class: GameClass.EVOKER,
-      spec: PlayerSpec.DEVASTATION,
-      role: RaidRole.DPS,
-    },
-    {
-      name: 'Добрыйклыкач',
+      name: 'Артрит',
       class: GameClass.HUNTER,
-      spec: PlayerSpec.BEAST_MASTER,
+      spec: PlayerSpec.MARKSMANSHIP,
       role: RaidRole.DPS,
     },
     {
@@ -48,31 +46,7 @@ export const heroicZskarn = {
       role: RaidRole.DPS,
     },
     {
-      name: 'Кхуун',
-      class: GameClass.HUNTER,
-      spec: PlayerSpec.BEAST_MASTER,
-      role: RaidRole.DPS,
-    },
-    {
-      name: 'Натянутая',
-      class: GameClass.HUNTER,
-      spec: PlayerSpec.BEAST_MASTER,
-      role: RaidRole.DPS,
-    },
-    {
-      name: 'Уайлен',
-      class: GameClass.HUNTER,
-      spec: PlayerSpec.MARKSMANSHIP,
-      role: RaidRole.DPS,
-    },
-    {
-      name: 'Элуизка',
-      class: GameClass.HUNTER,
-      spec: PlayerSpec.BEAST_MASTER,
-      role: RaidRole.DPS,
-    },
-    {
-      name: 'Визэриз',
+      name: 'Хмеляга',
       class: GameClass.MONK,
       spec: PlayerSpec.WINDWALKER,
       role: RaidRole.DPS,
@@ -84,81 +58,51 @@ export const heroicZskarn = {
       role: RaidRole.DPS,
     },
     {
-      name: 'Моргиус',
-      class: GameClass.PALADIN,
-      spec: PlayerSpec.RETRIBUTION,
-      role: RaidRole.DPS,
-    },
-    {
       name: 'Йорданиэль',
       class: GameClass.PRIEST,
       spec: PlayerSpec.SHADOW,
       role: RaidRole.DPS,
     },
     {
-      name: 'Адастрис',
-      class: GameClass.ROGUE,
-      spec: PlayerSpec.ASSASINATION,
-      role: RaidRole.DPS,
-    },
-    {
-      name: 'Правнучка',
-      class: GameClass.SHAMAN,
-      spec: PlayerSpec.ELEMENTAL,
-      role: RaidRole.DPS,
-    },
-    {
-      name: 'Толморен',
-      class: GameClass.SHAMAN,
-      spec: PlayerSpec.ELEMENTAL,
-      role: RaidRole.DPS,
-    },
-    {
-      name: 'Блэкфлэймх',
-      class: GameClass.WARLOCK,
-      spec: PlayerSpec.DEMONOLOGY,
-      role: RaidRole.DPS,
-    },
-    {
-      name: 'Графическая',
-      class: GameClass.WARLOCK,
-      spec: PlayerSpec.DEMONOLOGY,
-      role: RaidRole.DPS,
-    },
-    {
-      name: 'Амброзиия',
-      class: GameClass.EVOKER,
-      spec: PlayerSpec.PRESERVATION,
-      role: RaidRole.HEALER,
-    },
-    {
-      name: 'Сефирот',
-      class: GameClass.EVOKER,
-      spec: PlayerSpec.PRESERVATION,
-      role: RaidRole.HEALER,
-    },
-    {
-      name: 'Диклонот',
-      class: GameClass.PALADIN,
-      spec: PlayerSpec.HOLY,
-      role: RaidRole.HEALER,
-    },
-    {
-      name: 'Маггрубер',
-      class: GameClass.PALADIN,
-      spec: PlayerSpec.HOLY,
-      role: RaidRole.HEALER,
-    },
-    {
-      name: 'Мурдра',
+      name: 'Санфели',
       class: GameClass.PRIEST,
-      spec: PlayerSpec.DISCIPLINE,
+      spec: PlayerSpec.SHADOW,
+      role: RaidRole.DPS,
+    },
+    {
+      name: 'Сонфарина',
+      class: GameClass.SHAMAN,
+      spec: PlayerSpec.ELEMENTAL,
+      role: RaidRole.DPS,
+    },
+    {
+      name: 'Дестромадам',
+      class: GameClass.WARLOCK,
+      spec: PlayerSpec.DEMONOLOGY,
+      role: RaidRole.DPS,
+    },
+    {
+      name: 'Нингалла',
+      class: GameClass.WARLOCK,
+      spec: PlayerSpec.AFFLICTION,
+      role: RaidRole.DPS,
+    },
+    {
+      name: 'Белыйветер',
+      class: GameClass.DRUID,
+      spec: PlayerSpec.RESOTRATION,
       role: RaidRole.HEALER,
     },
     {
-      name: 'Дримтэйл',
-      class: GameClass.SHAMAN,
-      spec: PlayerSpec.RESOTRATION,
+      name: 'Шедоурейн',
+      class: GameClass.MONK,
+      spec: PlayerSpec.MISTWEAVER,
+      role: RaidRole.HEALER,
+    },
+    {
+      name: 'Нарранель',
+      class: GameClass.PRIEST,
+      spec: PlayerSpec.HOLY,
       role: RaidRole.HEALER,
     },
   ],

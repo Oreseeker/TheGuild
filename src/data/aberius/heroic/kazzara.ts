@@ -88,7 +88,7 @@ export const heroicKazzara: Encounter = {
       role: RaidRole.DPS,
     },
     {
-      name: 'Блекфлэймх',
+      name: 'Блэкфлеймх',
       class: GameClass.WARLOCK,
       spec: PlayerSpec.DEMONOLOGY,
       role: RaidRole.DPS,

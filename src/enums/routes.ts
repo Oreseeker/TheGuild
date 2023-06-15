@@ -1,5 +1,6 @@
 export enum RouteName {
   ABOUT_US = 'about-us',
   RULES = 'rules',
-  JOIN = 'join'
+  JOIN = 'join',
+  RAID_RULES = 'raid-rules',
 }

@@ -238,7 +238,7 @@ export default defineComponent({
       },
       {
         difficulty: RaidDifficulty.HEROIC,
-        count: 5,
+        count: 8,
       },
       {
         difficulty: RaidDifficulty.MYTHIC,
@@ -302,6 +302,11 @@ export default defineComponent({
   },
   mounted() {
     this.setActiveStats();
+    document.addEventListener('yacounter93717235inited', () => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      this.$metrika.hit(window.location.href);
+    });
   },
 });
 </script>

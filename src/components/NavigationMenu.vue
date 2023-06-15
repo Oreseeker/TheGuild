@@ -53,6 +53,10 @@ export default defineComponent({
           to: { name: RouteName.JOIN },
           text: 'Вступление',
         },
+        {
+          to: { name: RouteName.RAID_RULES },
+          text: 'Правила проведения рейдов',
+        },
       ],
     };
   },

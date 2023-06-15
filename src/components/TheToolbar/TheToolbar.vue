@@ -33,20 +33,6 @@ export default defineComponent({
   },
   data() {
     return {
-      menu: [
-        {
-          to: { name: RouteName.ABOUT_US },
-          text: 'О нас',
-        },
-        {
-          to: { name: RouteName.RULES },
-          text: 'Правила гильдии',
-        },
-        {
-          to: { name: RouteName.JOIN },
-          text: 'Вступление',
-        },
-      ],
       showMobileMenu: false,
     };
   },

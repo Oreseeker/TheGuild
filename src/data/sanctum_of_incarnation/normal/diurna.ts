@@ -128,7 +128,7 @@ export const normalDiurna: Encounter = {
       role: RaidRole.DPS,
     },
     {
-      name: 'Блекфлэймх',
+      name: 'Блэкфлеймх',
       class: GameClass.WARLOCK,
       spec: PlayerSpec.AFFLICTION,
       role: RaidRole.DPS,

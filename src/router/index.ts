@@ -1,24 +1,26 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import AboutUs from '@/views/AboutUs.vue';
-import GuildRules from '@/views/GuildRules.vue';
-import JoinGuild from '@/views/JoinGuild.vue';
 import { RouteName } from '@/enums';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: RouteName.ABOUT_US,
-    component: AboutUs,
+    component: () => import('@/views/AboutUs.vue'),
   },
   {
     path: '/rules',
     name: RouteName.RULES,
-    component: GuildRules,
+    component: () => import('@/views/GuildRules.vue'),
   },
   {
     path: '/join',
     name: RouteName.JOIN,
-    component: JoinGuild,
+    component: () => import('@/views/JoinGuild.vue'),
+  },
+  {
+    path: '/raid_rules',
+    name: RouteName.RAID_RULES,
+    component: () => import('@/views/RaidRules.vue'),
   },
 ];
 
