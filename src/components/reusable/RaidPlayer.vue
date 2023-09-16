@@ -274,4 +274,8 @@ export default defineComponent({
 .evoker.preservation .icon {
   background-image: url('@/assets/specs/evoker-preservation.jpg');
 }
+
+.evoker.augmenter .icon {
+  background-image: url('@/assets/specs/evoker-augmenter.jpg');
+}
 </style>

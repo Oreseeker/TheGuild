@@ -32,5 +32,6 @@ export enum PlayerSpec {
   ELEMENTAL = 'elemental',
   ENHANCEMENT = 'enhancement',
   PRESERVATION = 'preservation',
-  DEVASTATION = 'devastation'
+  DEVASTATION = 'devastation',
+  AUGMENTER = 'augmenter'
 }
