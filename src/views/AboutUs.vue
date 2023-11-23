@@ -467,6 +467,7 @@ export default defineComponent({
   width: 100%;
   display: flex;
   overflow: hidden;
+  max-width: 100vw;
 }
 
 .raid-stats {
