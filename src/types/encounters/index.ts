@@ -27,9 +27,9 @@ export type EncounterParticipants = EncounterParticipant[];
 export type EncounterDefeated = {
   defeated: true;
   pugs?: EncounterPugs;
-  warcraftLogsLink: string;
-  datetime: string;
-  participants: EncounterParticipants;
+  warcraftLogsLink: string | null;
+  datetime: string | null;
+  participants: EncounterParticipants | null;
 } & EncounterBase;
 
 export type Encounter = EncounterDefeated | EncounterNotDefeated;

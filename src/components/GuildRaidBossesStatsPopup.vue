@@ -13,77 +13,82 @@
           {{ boss.name }}
         </h1>
         <div class="defeated">
-          Босс побеждён {{ datetime }} составом
+          Босс побеждён <template v-if="boss.warcraftLogsLink">{{ datetime }} составом</template>
         </div>
-        <div class="setup">
-          <RoleCounter
-            v-for="(role, index) in roles"
-            :key="index"
-            :counter="role.counter"
-            :role="role.title"
-            :number-of-pugs="role.numberOfPugs"
-          />
-        </div>
-        <RLink :to="boss.warcraftLogsLink" class="log-link">Лог боя на Warcraft Logs</RLink>
-        <div class="participants">
-          <div class="tanks">
-            <h3>Танки:</h3>
-            <ul class="participants-items">
-              <li
-                v-for="(tank, index) in tanks"
-                :key="`tank-${index}`"
-              >
-                <RaidPlayer
-                  :player-class="tank.class"
-                  :player-spec="tank.spec"
-                  :name="tank.name"
-                  show-icon
-                />
-              </li>
-              <li v-if="boss?.pugs?.tanks">
-                + {{ numberOfPeopleText(boss.pugs.tanks) }} не из гильдии
-              </li>
-            </ul>
+        <template v-if="boss.warcraftLogsLink">
+          <div class="setup">
+            <RoleCounter
+              v-for="(role, index) in roles"
+              :key="index"
+              :counter="role.counter"
+              :role="role.title"
+              :number-of-pugs="role.numberOfPugs"
+            />
           </div>
-          <div class="healers">
-            <h3>Целители:</h3>
-            <ul class="participants-items">
-              <li
-                v-for="(healer, index) in healers"
-                :key="`healer-${index}`"
-              >
-                <RaidPlayer
-                  :player-class="healer.class"
-                  :player-spec="healer.spec"
-                  :name="healer.name"
-                  show-icon
-                />
-              </li>
-              <li v-if="boss?.pugs?.healers">
-                + {{ numberOfPeopleText(boss.pugs.healers) }} не из гильдии
-              </li>
-            </ul>
+          <RLink :to="boss.warcraftLogsLink" class="log-link">Лог боя на Warcraft Logs</RLink>
+          <div class="participants">
+            <div class="tanks">
+              <h3>Танки:</h3>
+              <ul class="participants-items">
+                <li
+                  v-for="(tank, index) in tanks"
+                  :key="`tank-${index}`"
+                >
+                  <RaidPlayer
+                    :player-class="tank.class"
+                    :player-spec="tank.spec"
+                    :name="tank.name"
+                    show-icon
+                  />
+                </li>
+                <li v-if="boss?.pugs?.tanks">
+                  + {{ numberOfPeopleText(boss.pugs.tanks) }} не из гильдии
+                </li>
+              </ul>
+            </div>
+            <div class="healers">
+              <h3>Целители:</h3>
+              <ul class="participants-items">
+                <li
+                  v-for="(healer, index) in healers"
+                  :key="`healer-${index}`"
+                >
+                  <RaidPlayer
+                    :player-class="healer.class"
+                    :player-spec="healer.spec"
+                    :name="healer.name"
+                    show-icon
+                  />
+                </li>
+                <li v-if="boss?.pugs?.healers">
+                  + {{ numberOfPeopleText(boss.pugs.healers) }} не из гильдии
+                </li>
+              </ul>
+            </div>
+            <div class="dps">
+              <h3>Бойцы:</h3>
+              <ul class="participants-items">
+                <li
+                  v-for="(dps, index) in dps"
+                  :key="`dps-${index}`"
+                >
+                  <RaidPlayer
+                    :player-class="dps.class"
+                    :player-spec="dps.spec"
+                    :name="dps.name"
+                    show-icon
+                  />
+                </li>
+                <li v-if="boss?.pugs?.dps">
+                  + {{ numberOfPeopleText(boss.pugs.dps) }} не из гильдии
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="dps">
-            <h3>Бойцы:</h3>
-            <ul class="participants-items">
-              <li
-                v-for="(dps, index) in dps"
-                :key="`dps-${index}`"
-              >
-                <RaidPlayer
-                  :player-class="dps.class"
-                  :player-spec="dps.spec"
-                  :name="dps.name"
-                  show-icon
-                />
-              </li>
-              <li v-if="boss?.pugs?.dps">
-                + {{ numberOfPeopleText(boss.pugs.dps) }} не из гильдии
-              </li>
-            </ul>
-          </div>
-        </div>
+        </template>
+        <template v-else>
+          К сожалению логи боя не удалось записать :(
+        </template>
       </div>
     </div>
   </RModal>

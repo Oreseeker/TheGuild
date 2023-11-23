@@ -42,6 +42,26 @@
         />
       </Transition>
     </div>
+    <GuildRaidBriefStats
+      title="Наш прогресс в Амирдрассиле"
+      :number-of-raid-bosses="9"
+      @click:raid="onAmirdrassilRaidDifficultyChange"
+      frame-color="green"
+      :background-image="amirdrassilBackgroundImage"
+      :raid-progress-items="amirdrassilShortStats"
+    />
+    <div class="block">
+      <Transition>
+        <GuildRaidBossesStats
+          v-if="amirdrassilActiveStats"
+          :key="amirdrassilActiveStats.difficulty"
+          :bosses="amirdrassilActiveStats.bosses"
+          :difficulty="amirdrassilActiveStats.difficulty"
+          class="raid-stats"
+          ref="amirdrassilRaidStats"
+        />
+      </Transition>
+    </div>
   </div>
 </template>
 
@@ -110,6 +130,37 @@ import { mythicSarkareth } from '@/data/aberius/mythic/sarkareth';
 
 import vaultBackgroundImage from '@/assets/incarnation.webp';
 import aberrusBackgroundImage from '@/assets/aberrus.webp';
+import amirdrassilBackgroundImage from '@/assets/amirdrassil.webp';
+
+import { normalGnarlroot } from '@/data/amirdrassil/normal/gnarlroot';
+import { normalIgira } from '@/data/amirdrassil/normal/igira';
+import { normalVolcoross } from '@/data/amirdrassil/normal/volcoross';
+import { normalCouncilOfDreams } from '@/data/amirdrassil/normal/councilOfDreams';
+import { normalLarodar } from '@/data/amirdrassil/normal/larodar';
+import { normalNymue } from '@/data/amirdrassil/normal/nymue';
+import { normalSmolderon } from '@/data/amirdrassil/normal/smolderon';
+import { normalFyrakk } from '@/data/amirdrassil/normal/fyrakk';
+import { normalTyndral } from '@/data/amirdrassil/normal/tyndral';
+
+import { heroicGnarlroot } from '@/data/amirdrassil/heroic/gnarlroot';
+import { heroicIgira } from '@/data/amirdrassil/heroic/igira';
+import { heroicVolcoross } from '@/data/amirdrassil/heroic/volcoross';
+import { heroicCouncilOfDreams } from '@/data/amirdrassil/heroic/councilOfDreams';
+import { heroicLarodar } from '@/data/amirdrassil/heroic/larodar';
+import { heroicNymue } from '@/data/amirdrassil/heroic/nymue';
+import { heroicSmolderon } from '@/data/amirdrassil/heroic/smolderon';
+import { heroicFyrakk } from '@/data/amirdrassil/heroic/fyrakk';
+import { heroicTyndral } from '@/data/amirdrassil/heroic/tyndral';
+
+import { mythicGnarlroot } from '@/data/amirdrassil/mythic/gnarlroot';
+import { mythicIgira } from '@/data/amirdrassil/mythic/igira';
+import { mythicVolcoross } from '@/data/amirdrassil/mythic/volcoross';
+import { mythicCouncilOfDreams } from '@/data/amirdrassil/mythic/councilOfDreams';
+import { mythicLarodar } from '@/data/amirdrassil/mythic/larodar';
+import { mythicNymue } from '@/data/amirdrassil/mythic/nymue';
+import { mythicSmolderon } from '@/data/amirdrassil/mythic/smolderon';
+import { mythicFyrakk } from '@/data/amirdrassil/mythic/fyrakk';
+import { mythicTyndral } from '@/data/amirdrassil/mythic/tyndral';
 
 type Bosses = any[];
 
@@ -213,8 +264,51 @@ export default defineComponent({
       },
     };
 
+    const amirdrassilStats: RaidStats = {
+      [RaidDifficulty.NORMAL]: {
+        bosses: [
+          normalGnarlroot,
+          normalIgira,
+          normalVolcoross,
+          normalCouncilOfDreams,
+          normalLarodar,
+          normalNymue,
+          normalSmolderon,
+          normalTyndral,
+          normalFyrakk,
+        ],
+      },
+      [RaidDifficulty.HEROIC]: {
+        bosses: [
+          heroicGnarlroot,
+          heroicIgira,
+          heroicVolcoross,
+          heroicCouncilOfDreams,
+          heroicLarodar,
+          heroicNymue,
+          heroicSmolderon,
+          heroicTyndral,
+          heroicFyrakk,
+        ],
+      },
+      [RaidDifficulty.MYTHIC]: {
+        bosses: [
+          mythicGnarlroot,
+          mythicIgira,
+          mythicVolcoross,
+          mythicCouncilOfDreams,
+          mythicLarodar,
+          mythicNymue,
+          mythicSmolderon,
+          mythicTyndral,
+          mythicFyrakk,
+        ],
+      },
+    };
+
     const vaultActiveStats: ActiveStats | null = null;
     const aberiusActiveStats: ActiveStats | null = null;
+    const amirdrassilActiveStats: ActiveStats | null = null;
 
     const vaultOfIncarnatesShortStats = [
       {
@@ -246,6 +340,21 @@ export default defineComponent({
       },
     ];
 
+    const amirdrassilShortStats = [
+      {
+        difficulty: RaidDifficulty.NORMAL,
+        count: 9,
+      },
+      {
+        difficulty: RaidDifficulty.HEROIC,
+        count: 3,
+      },
+      {
+        difficulty: RaidDifficulty.MYTHIC,
+        count: 0,
+      },
+    ];
+
     return {
       vaultActiveStats,
       vaultOfIncarnatesStats,
@@ -255,6 +364,10 @@ export default defineComponent({
       aberrusBackgroundImage,
       vaultOfIncarnatesShortStats,
       aberrusShortStats,
+      amirdrassilActiveStats,
+      amirdrassilShortStats,
+      amirdrassilBackgroundImage,
+      amirdrassilStats,
     };
   },
   methods: {
@@ -270,6 +383,12 @@ export default defineComponent({
       this.aberiusActiveStats = {
         difficulty: RaidDifficulty.NORMAL,
         bosses: this.aberiusStats.normal.bosses,
+      };
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      this.amirdrassilActiveStats = {
+        difficulty: RaidDifficulty.NORMAL,
+        bosses: this.amirdrassilStats.normal.bosses,
       };
     },
     onVaultRaidDifficultyChange(difficulty: RaidDifficulty) {
@@ -293,6 +412,18 @@ export default defineComponent({
 
       console.log('this.aberiusActiveStats', this.aberiusActiveStats);
       const raidStatsComponent = this.$refs.aberrusRaidStats as typeof GuildRaidBossesStats;
+      const raidStatsEl = raidStatsComponent.$el as HTMLElement;
+      raidStatsEl.scrollIntoView();
+    },
+    onAmirdrassilRaidDifficultyChange(difficulty: RaidDifficulty) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      this.amirdrassilActiveStats = {
+        difficulty,
+        bosses: this.amirdrassilStats[difficulty].bosses,
+      };
+
+      const raidStatsComponent = this.$refs.amirdrassilRaidStats as typeof GuildRaidBossesStats;
       const raidStatsEl = raidStatsComponent.$el as HTMLElement;
       raidStatsEl.scrollIntoView();
     },
