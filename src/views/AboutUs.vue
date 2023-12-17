@@ -347,7 +347,7 @@ export default defineComponent({
       },
       {
         difficulty: RaidDifficulty.HEROIC,
-        count: 8,
+        count: 9,
       },
       {
         difficulty: RaidDifficulty.MYTHIC,
