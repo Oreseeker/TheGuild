@@ -351,7 +351,7 @@ export default defineComponent({
       },
       {
         difficulty: RaidDifficulty.MYTHIC,
-        count: 0,
+        count: 3,
       },
     ];
 
